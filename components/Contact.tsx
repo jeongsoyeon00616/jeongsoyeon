@@ -22,11 +22,11 @@ const Contact: React.FC<ContactProps> = ({ currentPersona }) => {
               }`}>Contact Us</h2>
             <h3 className={`text-5xl md:text-7xl mb-12 leading-[0.95] transition-all duration-1000 ${isNoir ? 'font-serif italic tracking-tighter' : (isBrutalist ? 'font-sans font-black uppercase tracking-tighter' : 'font-serif')
               }`}>
-              {isNoir ? 'Your Space, \n Reimagined in Shadow' : '당신이 사랑할 공간을 \n 함께 만들겠습니다'}
+              {isNoir ? 'Your Space, \n Redefined' : '당신이 오래 사랑할 공간을 \n 함께 만들겠습니다'}
             </h3>
             <p className={`text-lg font-light mb-16 max-w-md leading-relaxed transition-colors ${isNoir ? 'text-zinc-500' : (isBrutalist ? 'text-zinc-500 font-sans' : 'text-gray-400')
               } ${isEditorial ? 'mx-auto' : ''}`}>
-              {"30평대 아파트 리모델링부터 상업 공간 설계까지. 첫 미팅은 무료입니다. 편하게 연락주세요."}
+              {"30평대 아파트 리모델링부터 상업 공간 설계까지. 첫 상담은 부담 없이, 편하게 연락주세요."}
             </p>
             <div className={`space-y-10 ${isEditorial ? 'flex flex-col items-center' : ''}`}>
               <div className="group flex items-center gap-6 cursor-pointer">

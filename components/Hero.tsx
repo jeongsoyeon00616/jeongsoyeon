@@ -67,23 +67,23 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens, currentPersona }) => {
 
           {isNoir ? (
             <h1 className="text-7xl md:text-[11rem] font-serif font-black text-white mb-4 tracking-tighter leading-[0.8] animate-fadeInUp italic">
-              Light After <br />
-              <span className="text-gold not-italic uppercase">Dark.</span>
+              Shadow & <br />
+              <span className="text-gold not-italic uppercase">Light.</span>
             </h1>
           ) : isBrutalist ? (
             <h1 className="text-6xl md:text-9xl font-sans font-black text-white mb-8 tracking-tighter leading-[0.9] animate-fadeInUp uppercase">
-              CONCRETE <br />
-              <span className="text-zinc-600">POETRY.</span>
+              RAW & <br />
+              <span className="text-zinc-600">HONEST.</span>
             </h1>
           ) : isEditorial ? (
             <h1 className="text-7xl md:text-[10rem] font-inter font-light text-white mb-2 leading-[0.85] tracking-tight animate-fadeInUp">
-              Space as <br />
-              <span className="italic font-serif">Canvas.</span>
+              Curated <br />
+              <span className="italic font-serif">Space.</span>
             </h1>
           ) : (
             <h1 className="text-5xl md:text-8xl font-serif text-white mb-8 leading-[1.1] animate-fadeInUp">
-              Less is <br />
-              <span className="italic text-white/90 font-light">More Luxury.</span>
+              Quiet <br />
+              <span className="italic text-white/90 font-light">Luxury.</span>
             </h1>
           )}
 
@@ -91,10 +91,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens, currentPersona }) => {
             <p className={`text-sm md:text-lg font-light mb-12 max-w-xl mx-auto tracking-wide leading-relaxed animate-fadeInUp delay-200 ${isNoir ? 'text-gray-400 font-serif' : (isBrutalist ? 'text-zinc-400 font-sans' : 'text-white/70')
               }`}>
               {isNoir
-                ? '깊은 어둠 속에서 더 선명해지는 질감과 윤곽. 빛과 그림자가 만드는 드라마틱한 주거 경험.'
+                ? '어둠 속에서 더 선명해지는 디테일. 시간에 따라 다른 표정을 짓는 공간.'
                 : (isBrutalist
-                  ? '노출 콘크리트와 스틸, 원목. 가공하지 않은 소재가 만드는 솔직하고 강렬한 공간의 언어.'
-                  : '불필요한 것을 덜어내고, 본질만 남긴 공간. 당신의 일상이 고요하고 우아하게 흐르도록 설계합니다.')}
+                  ? '콘크리트, 스틸, 원목. 소재 본연의 물성으로 말하는 공간.'
+                  : '불필요한 것을 덜어내고 본질에 집중합니다. 시간이 지나도 질리지 않는, 당신만의 공간을 만듭니다.')}
             </p>
           )}
         </div>
