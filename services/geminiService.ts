@@ -49,24 +49,32 @@ export const analyzeInterior = async (image: string): Promise<DesignAnalysis> =>
     ]);
 
     const response = await result.response;
-    const text = response.text().replace(/```json|```/g, "").trim();
+    const text = response.text();
 
-    // JSON 유효성 검사 및 정제
+    // JSON 유효성 검사 및 정제: 가장 견고한 추출 방식 적용
     let data;
     try {
-      data = JSON.parse(text);
-    } catch (e) {
-      // 혹시라도 앞뒤에 텍스트가 섞여있을 경우를 대비한 정규식 추출 시도
-      const jsonMatch = text.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        data = JSON.parse(jsonMatch[0]);
+      const start = text.indexOf('{');
+      const end = text.lastIndexOf('}');
+      if (start !== -1 && end !== -1) {
+        const jsonStr = text.substring(start, end + 1);
+        data = JSON.parse(jsonStr);
       } else {
-        throw new Error("Invalid AI Response Format");
+        throw new Error("AI 응답 데이터 형식이 올바르지 않습니다.");
       }
+    } catch (e) {
+      console.error("AI Raw Response:", text);
+      throw new Error(`분석 결과 해석 실패 (Parsing Error). AI가 예상치 못한 형식으로 답변했습니다.`);
     }
     return data;
-  } catch (error) {
-    console.error("Gemini API Error:", error);
+  } catch (error: any) {
+    console.error("Gemini API Error details:", error);
+    // API 에러 메시지에 따른 상세 안내
+    if (error.message?.includes("API_KEY_INVALID")) {
+      throw new Error("API 키가 올바르지 않습니다. Vercel 환경 변수가 정확히 등록되었는지 확인해 주세요.");
+    } else if (error.message?.includes("SAFETY")) {
+      throw new Error("이미지가 AI 안전 정책에 의해 분석이 거부되었습니다. 다른 사진으로 시도해 주세요.");
+    }
     throw error;
   }
 };

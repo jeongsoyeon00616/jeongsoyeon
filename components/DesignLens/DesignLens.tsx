@@ -36,9 +36,9 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             const result = await analyzeInterior(selectedImage);
             setAnalysis(result);
             setState(AppState.RESULT);
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
-            alert("디자인 분석에 실패했습니다. API 키 설정을 확인하거나 잠시 후 다시 시도해 주세요. (환경 변수 적용을 위해 사이트 배포가 완료되어야 합니다.)");
+            alert(error.message || "디자인 분석에 실패했습니다. 다시 시도해 주세요.");
             setState(AppState.HOME);
         } finally {
             setIsLoading(false);

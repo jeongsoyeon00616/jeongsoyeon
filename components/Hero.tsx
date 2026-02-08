@@ -76,8 +76,8 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
         </div>
       </div>
 
-      <div className="absolute bottom-12 left-10 hidden lg:flex flex-col gap-4 text-white/40 text-[10px] tracking-widest vertical-rl uppercase">
-        STUDIO SOYEON — 인스타그램 / 비핸스 / 핀터레스트
+      <div className="absolute bottom-12 left-10 hidden lg:flex flex-col gap-4 text-white/40 text-[10px] tracking-widest vertical-rl uppercase font-medium">
+        STUDIO SOYEON — SNS / 인스타그램 / 비핸스
       </div>
     </section>
   );
