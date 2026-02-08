@@ -13,6 +13,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens, currentPersona, onPersonaChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMoodOpen, setIsMoodOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,11 +24,13 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens, currentPersona, onPer
   }, []);
 
   const personaOptions = [
-    { id: DesignPersona.TIMELESS, label: 'T', full: 'Timeless' },
-    { id: DesignPersona.BRUTALIST, label: 'B', full: 'Brutalist' },
-    { id: DesignPersona.EDITORIAL, label: 'E', full: 'Editorial' },
-    { id: DesignPersona.NOIR, label: 'N', full: 'Noir' }
+    { id: DesignPersona.TIMELESS, label: 'T', full: 'Timeless Elegance' },
+    { id: DesignPersona.BRUTALIST, label: 'B', full: 'Industrial Brutalism' },
+    { id: DesignPersona.EDITORIAL, label: 'E', full: 'Editorial Minimalism' },
+    { id: DesignPersona.NOIR, label: 'N', full: 'Midnight Noir' }
   ];
+
+  const currentOption = personaOptions.find(p => p.id === currentPersona) || personaOptions[0];
 
   const navLinks = [
     { name: '철학', href: '#about' },
@@ -62,23 +65,60 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens, currentPersona, onPer
             <button onClick={onOpenDesignLens} className="hover:text-gold transition-colors uppercase">DesignLens AI</button>
           </div>
 
-          {/* RIGHT: MOOD SWITCHER & CTA */}
+          {/* RIGHT: MOOD SELECTOR & CTA */}
           <div className="flex-1 flex justify-end items-center gap-4 md:gap-8">
-            <div className={`flex items-center p-1 rounded-full border transition-all duration-500 ${isDarkTone ? 'border-zinc-800 bg-zinc-900/50' : 'border-gray-200 bg-gray-50'
-              }`}>
-              {personaOptions.map((opt) => (
-                <button
-                  key={opt.id}
-                  onClick={() => onPersonaChange(opt.id)}
-                  title={opt.full}
-                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 text-[9px] font-black ${currentPersona === opt.id
-                    ? 'bg-gold text-white shadow-lg'
-                    : (isDarkTone ? 'text-zinc-600 hover:text-white' : 'text-gray-300 hover:text-gold')
-                    }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
+            <div className="relative">
+              <button
+                onClick={() => setIsMoodOpen(!isMoodOpen)}
+                className={`group flex items-center gap-3 px-4 py-2 rounded-full border transition-all duration-500 ${isDarkTone ? 'border-zinc-800 bg-zinc-900/50 text-white' : 'border-gray-200 bg-gray-50 text-charcoal'
+                  }`}
+              >
+                <span className="w-5 h-5 rounded-full bg-gold text-white text-[8px] flex items-center justify-center font-black shadow-inner">
+                  {currentOption.label}
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-widest hidden sm:block">
+                  {currentOption.full}
+                </span>
+                <svg className={`w-3 h-3 transition-transform duration-500 ${isMoodOpen ? 'rotate-180' : ''} ${isDarkTone ? 'text-zinc-600' : 'text-gray-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+
+              <AnimatePresence>
+                {isMoodOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    className={`absolute right-0 mt-4 p-2 rounded-2xl border shadow-2xl z-[60] min-w-[200px] ${isDarkTone ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-gray-100'
+                      }`}
+                  >
+                    <div className="grid gap-1">
+                      {personaOptions.map((opt) => (
+                        <button
+                          key={opt.id}
+                          onClick={() => {
+                            onPersonaChange(opt.id);
+                            setIsMoodOpen(false);
+                          }}
+                          className={`flex items-center gap-3 w-full px-4 py-3 rounded-xl transition-all duration-300 ${currentPersona === opt.id
+                            ? (isDarkTone ? 'bg-zinc-800 text-gold' : 'bg-gray-50 text-gold')
+                            : (isDarkTone ? 'text-zinc-400 hover:bg-zinc-800/50 hover:text-white' : 'text-gray-500 hover:bg-gray-50 hover:text-charcoal')
+                            }`}
+                        >
+                          <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-black border transition-colors ${currentPersona === opt.id
+                            ? 'bg-gold border-gold text-white'
+                            : (isDarkTone ? 'border-zinc-700' : 'border-gray-200')
+                            }`}>
+                            {opt.label}
+                          </span>
+                          <span className="text-[11px] font-bold uppercase tracking-wider">{opt.full}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             <button className={`hidden sm:block text-[10px] uppercase font-bold tracking-[0.2em] px-5 py-2.5 border transition-all duration-500 ${isScrolled || isDarkTone
