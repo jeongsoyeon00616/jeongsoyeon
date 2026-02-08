@@ -30,7 +30,7 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     const startAnalysis = async () => {
         if (!selectedImage) return;
         setIsLoading(true);
-        setLoadingStep("Scanning interior elements...");
+        setLoadingStep("공간 요소를 스캔하는 중...");
         try {
             setState(AppState.ANALYZING);
             const result = await analyzeInterior(selectedImage);
@@ -38,7 +38,7 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             setState(AppState.RESULT);
         } catch (error) {
             console.error(error);
-            alert("Failed to analyze design. Please try again.");
+            alert("디자인 분석에 실패했습니다. API 키 설정을 확인하거나 잠시 후 다시 시도해 주세요. (환경 변수 적용을 위해 사이트 배포가 완료되어야 합니다.)");
             setState(AppState.HOME);
         } finally {
             setIsLoading(false);
@@ -48,14 +48,14 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     const handleRetouch = async (suggestion: string) => {
         if (!selectedImage) return;
         setIsLoading(true);
-        setLoadingStep("Simulating redesign...");
+        setLoadingStep("디자인 변경 시뮬레이션 중...");
         try {
             const result = await retouchInterior(selectedImage, suggestion);
             setRetouchedImage(result);
             setState(AppState.RETOUCHING);
         } catch (error) {
             console.error(error);
-            alert("Failed to retouch. Please try again.");
+            alert("리터칭 시뮬레이션에 실패했습니다.");
         } finally {
             setIsLoading(false);
         }
@@ -82,7 +82,7 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                     <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
                         <Camera className="w-5 h-5 text-white" />
                     </div>
-                    <h1 className="text-xl font-bold tracking-tight text-black">DesignLens</h1>
+                    <h1 className="text-xl font-bold tracking-tight text-black font-serif">DesignLens</h1>
                 </div>
                 <button
                     onClick={onClose}
@@ -104,22 +104,22 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             className="flex flex-col items-center text-center max-w-3xl mx-auto space-y-8"
                         >
                             <h2 className="text-5xl md:text-7xl font-serif leading-tight">
-                                Design Insight <br />
-                                <span className="text-gray-400">At Your Fingertips</span>
+                                공간의 가치를 <br />
+                                <span className="text-gray-400">데이터로 입증합니다.</span>
                             </h2>
-                            <p className="text-lg text-gray-600 leading-relaxed">
-                                Upload your interior photo and let our AI scanner analyze your space, define your style, and suggest professional refinements.
+                            <p className="text-lg text-gray-600 leading-relaxed font-light">
+                                인테리어 사진을 업로드하세요. <br /> AI 스캐너가 공간을 분석하여 스타일을 정의하고, 전문가 수준의 더 나은 공간 솔루션을 제안합니다.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 w-full justify-center">
                                 <button
                                     onClick={() => fileInputRef.current?.click()}
-                                    className="bg-black text-white px-8 py-4 rounded-2xl flex items-center justify-center gap-3 hover:scale-105 transition-transform"
+                                    className="bg-black text-white px-8 py-4 rounded-2xl flex items-center justify-center gap-3 hover:scale-105 transition-transform font-bold"
                                 >
                                     <Upload size={20} />
-                                    Upload Photo
+                                    사진 업로드하기
                                 </button>
-                                <button className="border border-gray-200 bg-white text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-gray-50 transition-colors">
-                                    View Sample Report
+                                <button className="border border-gray-200 bg-white text-black px-8 py-4 rounded-2xl flex items-center justify-center gap-3 hover:bg-gray-50 transition-colors font-medium">
+                                    샘플 리포트 확인
                                 </button>
                             </div>
                             <input
@@ -131,13 +131,13 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             />
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full pt-12">
                                 {[
-                                    { icon: <Zap size={24} />, label: "Object Recognition" },
-                                    { icon: <Palette size={24} />, label: "Palette Extraction" },
-                                    { icon: <BarChart3 size={24} />, label: "Design Scoring" },
-                                    { icon: <Wand2 size={24} />, label: "AI Retouching" }
+                                    { icon: <Zap size={24} />, label: "공간 객체 인식" },
+                                    { icon: <Palette size={24} />, label: "팔레트 추출" },
+                                    { icon: <BarChart3 size={24} />, label: "디자인 수치화" },
+                                    { icon: <Wand2 size={24} />, label: "AI 리터칭" }
                                 ].map((item, i) => (
                                     <div key={i} className="p-4 bg-white rounded-2xl border border-gray-100 shadow-sm text-center">
-                                        <span className="block mb-2 text-gold">{item.icon}</span>
+                                        <span className="block mb-2 text-gold flex justify-center">{item.icon}</span>
                                         <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{item.label}</span>
                                     </div>
                                 ))}
@@ -160,13 +160,13 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                                     onClick={reset}
                                     className="px-8 py-3 rounded-xl border border-gray-200 font-medium hover:bg-gray-50 transition-colors"
                                 >
-                                    Change Photo
+                                    사진 변경
                                 </button>
                                 <button
                                     onClick={startAnalysis}
-                                    className="bg-black text-white px-10 py-3 rounded-xl font-semibold flex items-center gap-2 hover:bg-gray-800 transition-colors"
+                                    className="bg-black text-white px-10 py-3 rounded-xl font-semibold flex items-center gap-2 hover:bg-gray-800 transition-colors shadow-lg"
                                 >
-                                    Start AI Analysis
+                                    AI 분석 시작
                                     <Zap size={16} />
                                 </button>
                             </div>
@@ -186,7 +186,7 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             </div>
                             <div className="text-center">
                                 <h3 className="text-2xl font-semibold mb-2">{loadingStep}</h3>
-                                <p className="text-gray-500 animate-pulse font-light">AI is carefully reviewing your space...</p>
+                                <p className="text-gray-500 animate-pulse font-light">AI가 당신의 공간을 섬세하게 분석하고 있습니다...</p>
                             </div>
                         </motion.div>
                     )}
@@ -198,20 +198,19 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             animate={{ opacity: 1 }}
                             className="grid grid-cols-1 lg:grid-cols-12 gap-12"
                         >
-                            {/* Left: Visualization */}
                             <div className="lg:col-span-7 space-y-8">
                                 <div className="relative rounded-3xl overflow-hidden shadow-xl border border-gray-100 bg-white p-2">
                                     <img src={selectedImage!} alt="Original" className="w-full rounded-2xl" />
                                     <div className="absolute top-6 left-6 flex flex-col gap-2">
                                         <span className="bg-black/80 backdrop-blur-md text-white text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full w-fit">
-                                            Style: {analysis.styleName}
+                                            스타일: {analysis.styleName}
                                         </span>
                                     </div>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-6">Extracted Palette</h4>
+                                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-6 font-bold">추출된 컬러 팔레트</h4>
                                         <div className="flex h-20 rounded-2xl overflow-hidden shadow-inner">
                                             {analysis.palette.map((color, idx) => (
                                                 <div
@@ -230,7 +229,7 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                                     </div>
 
                                     <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-6">Detected Elements</h4>
+                                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-6 font-bold">감지된 핵심 요소</h4>
                                         <div className="space-y-4 max-h-[200px] overflow-y-auto pr-2 custom-scrollbar">
                                             {analysis.elements.map((el, idx) => (
                                                 <div key={idx} className="flex items-start gap-4 p-4 rounded-xl bg-gray-50/50 hover:bg-gray-50 transition-colors">
@@ -246,16 +245,15 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                                 </div>
                             </div>
 
-                            {/* Right: Scores & Suggestions */}
                             <div className="lg:col-span-5 space-y-8">
-                                <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
-                                    <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-3">Design Performance</h4>
+                                <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden text-black">
+                                    <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-3">전문화된 디자인 점수</h4>
                                     <p className="text-gray-500 text-sm mb-6 leading-relaxed font-light">{analysis.description}</p>
                                     <RadarChart data={analysis.scores} />
                                 </div>
 
                                 <div className="space-y-4">
-                                    <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400">AI Refinement Suggestions</h4>
+                                    <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400">AI 디자인 개선 솔루션</h4>
                                     {analysis.suggestions.map((s, idx) => (
                                         <div
                                             key={idx}
@@ -271,7 +269,7 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                                             <h5 className="font-bold text-lg mb-1">{s.title}</h5>
                                             <p className="text-sm text-gray-500 leading-relaxed font-light">{s.description}</p>
                                             <button className="mt-4 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
-                                                Apply Simulation <span>→</span>
+                                                시뮬레이션 적용 <span>→</span>
                                             </button>
                                         </div>
                                     ))}
@@ -292,39 +290,39 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                                     onClick={() => setState(AppState.RESULT)}
                                     className="flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-black transition-colors uppercase tracking-widest"
                                 >
-                                    ← Back to Analysis
+                                    ← 분석 리포트로 돌아가기
                                 </button>
-                                <h3 className="text-3xl font-serif">Redesign Simulation</h3>
+                                <h3 className="text-3xl font-serif">디자인 변경 시뮬레이션</h3>
                                 <div className="w-24"></div>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                 <div className="space-y-4 text-center">
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Original Architecture</span>
-                                    <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-lg grayscale-[0.5]">
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">원본 공간 구조</span>
+                                    <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-lg grayscale-[0.3]">
                                         <img src={selectedImage!} alt="Before" className="w-full h-full object-cover" />
                                     </div>
                                 </div>
                                 <div className="space-y-4 text-center">
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600">AI Enhanced Concept</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600">AI 강화 공간 예측</span>
                                     <div className="rounded-3xl overflow-hidden border-2 border-blue-100 shadow-2xl relative">
                                         <img src={retouchedImage} alt="After" className="w-full h-full object-cover" />
                                         <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md px-5 py-2 rounded-full flex items-center gap-3 shadow-lg">
                                             <div className="w-2 h-2 bg-blue-500 rounded-full animate-ping"></div>
-                                            <span className="text-[10px] font-bold uppercase tracking-widest">Visual Prediction</span>
+                                            <span className="text-[10px] font-bold uppercase tracking-widest">Visual Concept</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="bg-white p-12 rounded-[50px] border border-gray-100 text-center space-y-8 shadow-sm">
-                                <h4 className="text-3xl font-bold">Love this transformation?</h4>
+                            <div className="bg-white p-12 rounded-[50px] border border-gray-100 text-center space-y-8 shadow-sm text-black">
+                                <h4 className="text-3xl font-bold">이 공간의 변화가 마음에 드시나요?</h4>
                                 <p className="text-gray-500 max-w-xl mx-auto font-light leading-relaxed">
-                                    Our network of certified designers can help you bring this vision to life with real product sourcing and detailed blueprints.
+                                    정소연 디자이너의 전문 파트너 네트워크를 통해 이 비전을 실제 가구 소싱과 시공 도면으로 구현해 드립니다.
                                 </p>
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                                     <button className="bg-black text-white px-10 py-5 rounded-2xl font-bold hover:scale-105 transition-transform shadow-xl">
-                                        Match with a Designer
+                                        디자이너 상담 신청
                                     </button>
                                     <button
                                         onClick={() => {
@@ -335,7 +333,7 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                                         }}
                                         className="border border-gray-200 px-10 py-5 rounded-2xl font-bold hover:bg-gray-50 transition-colors"
                                     >
-                                        Download Simulation
+                                        시뮬레이션 이미지 저장
                                     </button>
                                 </div>
                             </div>
@@ -349,16 +347,16 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-2">
-                            <Camera size={24} />
-                            <span className="text-lg font-bold">DesignLens</span>
+                            <Camera size={24} className="text-black" />
+                            <span className="text-lg font-bold text-black border-black border-b">DesignLens</span>
                         </div>
-                        <p className="text-[10px] text-gray-400 uppercase tracking-widest">© 2024 DesignLens AI. All rights reserved.</p>
+                        <p className="text-[10px] text-gray-400 uppercase tracking-widest">© 2024 DesignLens AI. 모든 권리 보유.</p>
                     </div>
                     <div className="flex gap-10 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                         <a href="#" className="hover:text-black">Privacy</a>
                         <a href="#" className="hover:text-black">Terms</a>
                         <a href="#" className="hover:text-black">API Documentation</a>
-                        <a href="#" className="hover:text-black">Contact</a>
+                        <a href="#" className="hover:text-black text-black border-b border-black">Contact</a>
                     </div>
                 </div>
             </footer>

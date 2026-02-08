@@ -62,22 +62,22 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
           하이엔드 미니멀리즘의 정수를 선사합니다.
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-10 animate-fadeInUp delay-300">
-          <a href="#projects" className="group flex items-center gap-4 text-white text-[11px] uppercase tracking-[0.3em]">
-            Explore Portfolio
+          <a href="#projects" className="group flex items-center gap-4 text-white text-[11px] uppercase tracking-[0.3em] font-medium">
+            포트폴리오 살펴보기
             <span className="w-12 h-[1px] bg-gold group-hover:w-20 transition-all duration-500"></span>
           </a>
           <button
             onClick={onOpenDesignLens}
             className="group flex items-center gap-4 text-gold text-[11px] uppercase tracking-[0.3em] font-bold"
           >
-            Launch DesignLens AI
+            DesignLens AI 시작하기
             <span className="w-5 h-5 border border-gold rounded-full flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all">→</span>
           </button>
         </div>
       </div>
 
-      <div className="absolute bottom-12 left-10 hidden lg:flex flex-col gap-4 text-white/40 text-[10px] tracking-widest vertical-rl">
-        FOLLOW US — INSTAGRAM / BEHANCE / PINTEREST
+      <div className="absolute bottom-12 left-10 hidden lg:flex flex-col gap-4 text-white/40 text-[10px] tracking-widest vertical-rl uppercase">
+        STUDIO SOYEON — 인스타그램 / 비핸스 / 핀터레스트
       </div>
     </section>
   );

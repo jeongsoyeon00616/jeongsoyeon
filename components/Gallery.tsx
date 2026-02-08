@@ -9,12 +9,12 @@ const Gallery: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-baseline mb-24 border-b border-gray-100 pb-12">
           <div>
             <h2 className="text-gold text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Portfolio</h2>
-            <h3 className="text-4xl md:text-5xl font-serif text-[#1a1a1a]">Selected Archives</h3>
+            <h3 className="text-4xl md:text-5xl font-serif text-[#1a1a1a]">엄선된 파이널 아카이브</h3>
           </div>
           <div className="mt-8 md:mt-0 flex gap-10 text-[10px] uppercase tracking-widest font-semibold text-gray-400">
-            <button className="text-[#1a1a1a] border-b border-[#1a1a1a]">All Projects</button>
-            <button className="hover:text-gold transition-colors">Residential</button>
-            <button className="hover:text-gold transition-colors">Commercial</button>
+            <button className="text-[#1a1a1a] border-b border-[#1a1a1a]">전체보기</button>
+            <button className="hover:text-gold transition-colors">주거공간</button>
+            <button className="hover:text-gold transition-colors">상업공간</button>
           </div>
         </div>
 
@@ -22,9 +22,9 @@ const Gallery: React.FC = () => {
           {PROJECTS.map((project, index) => (
             <div key={project.id} className={`group cursor-pointer ${index % 2 === 1 ? 'md:mt-24' : ''}`}>
               <div className="relative overflow-hidden aspect-[16/11] mb-8 bg-gray-100 shadow-sm transition-all duration-700 hover:shadow-2xl">
-                <img 
-                  src={project.imageUrl} 
-                  alt={project.title} 
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-charcoal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
