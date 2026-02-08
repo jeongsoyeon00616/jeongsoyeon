@@ -4,7 +4,15 @@ export interface Project {
   title: string;
   category: string;
   imageUrl: string;
+  galleryUrls?: string[];
   description: string;
+  longDescription?: string;
+  features?: string[];
+  specs?: {
+    location?: string;
+    area?: string;
+    period?: string;
+  };
 }
 
 export interface Skill {
