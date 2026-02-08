@@ -70,30 +70,31 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens, currentPersona, onPer
             <div className="relative">
               <button
                 onClick={() => setIsMoodOpen(!isMoodOpen)}
-                className={`group flex items-center gap-3 px-4 py-2 rounded-full border transition-all duration-500 ${isDarkTone ? 'border-zinc-800 bg-zinc-900/50 text-white' : 'border-gray-200 bg-gray-50 text-charcoal'
+                className={`group flex items-center gap-2 px-3 py-2 border transition-all duration-500 rounded-none ${isDarkTone
+                  ? 'border-zinc-800 bg-zinc-950 text-white'
+                  : 'border-gray-200 bg-white text-charcoal'
                   }`}
               >
-                <span className="w-5 h-5 rounded-full bg-gold text-white text-[8px] flex items-center justify-center font-black shadow-inner">
+                <span className="text-[11px] font-black tracking-tighter w-4 text-center">
                   {currentOption.label}
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-widest hidden sm:block">
-                  {currentOption.full}
-                </span>
-                <svg className={`w-3 h-3 transition-transform duration-500 ${isMoodOpen ? 'rotate-180' : ''} ${isDarkTone ? 'text-zinc-600' : 'text-gray-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path>
+                <svg className={`w-2.5 h-2.5 transition-transform duration-500 ${isMoodOpen ? 'rotate-180' : ''} ${isDarkTone ? 'text-zinc-600' : 'text-gray-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
 
               <AnimatePresence>
                 {isMoodOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    className={`absolute right-0 mt-4 p-2 rounded-2xl border shadow-2xl z-[60] min-w-[200px] ${isDarkTone ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-gray-100'
+                    initial={{ opacity: 0, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 0 }}
+                    className={`absolute right-0 mt-[-1px] p-0 border shadow-2xl z-[60] min-w-[140px] rounded-none ${isDarkTone
+                      ? 'bg-zinc-950 border-zinc-800'
+                      : 'bg-white border-gray-200'
                       }`}
                   >
-                    <div className="grid gap-1">
+                    <div className="flex flex-col">
                       {personaOptions.map((opt) => (
                         <button
                           key={opt.id}
@@ -101,18 +102,13 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens, currentPersona, onPer
                             onPersonaChange(opt.id);
                             setIsMoodOpen(false);
                           }}
-                          className={`flex items-center gap-3 w-full px-4 py-3 rounded-xl transition-all duration-300 ${currentPersona === opt.id
-                            ? (isDarkTone ? 'bg-zinc-800 text-gold' : 'bg-gray-50 text-gold')
-                            : (isDarkTone ? 'text-zinc-400 hover:bg-zinc-800/50 hover:text-white' : 'text-gray-500 hover:bg-gray-50 hover:text-charcoal')
+                          className={`flex items-center gap-3 w-full px-4 py-3 transition-all duration-300 border-b last:border-b-0 ${isDarkTone ? 'border-zinc-900' : 'border-gray-50'} ${currentPersona === opt.id
+                            ? (isDarkTone ? 'bg-zinc-900 text-gold' : 'bg-gray-50 text-gold')
+                            : (isDarkTone ? 'text-zinc-500 hover:bg-zinc-900 hover:text-white' : 'text-gray-400 hover:bg-gray-50 hover:text-charcoal')
                             }`}
                         >
-                          <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-black border transition-colors ${currentPersona === opt.id
-                            ? 'bg-gold border-gold text-white'
-                            : (isDarkTone ? 'border-zinc-700' : 'border-gray-200')
-                            }`}>
-                            {opt.label}
-                          </span>
-                          <span className="text-[11px] font-bold uppercase tracking-wider">{opt.full}</span>
+                          <span className="text-[10px] font-black">{opt.label}</span>
+                          <span className="text-[9px] font-bold uppercase tracking-widest">{opt.full.split(' ')[0]}</span>
                         </button>
                       ))}
                     </div>
@@ -121,7 +117,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens, currentPersona, onPer
               </AnimatePresence>
             </div>
 
-            <button className={`hidden sm:block text-[10px] uppercase font-bold tracking-[0.2em] px-5 py-2.5 border transition-all duration-500 ${isScrolled || isDarkTone
+            <button className={`hidden sm:block text-[10px] uppercase font-bold tracking-[0.2em] px-5 py-2.5 border transition-all duration-500 rounded-none ${isScrolled || isDarkTone
               ? (isDarkTone ? 'border-white text-white hover:bg-white hover:text-black' : 'border-charcoal text-[#1a1a1a] hover:bg-gold hover:border-gold hover:text-white')
               : 'border-white text-white hover:bg-gold hover:border-gold'
               }`}>
