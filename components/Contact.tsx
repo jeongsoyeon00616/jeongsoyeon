@@ -22,21 +22,19 @@ const Contact: React.FC<ContactProps> = ({ currentPersona }) => {
               }`}>Contact Us</h2>
             <h3 className={`text-5xl md:text-7xl mb-12 leading-[0.95] transition-all duration-1000 ${isNoir ? 'font-serif italic tracking-tighter' : (isBrutalist ? 'font-sans font-black uppercase tracking-tighter' : 'font-serif')
               }`}>
-              {isNoir ? 'Designing Your \n Midnight Dream.' : '당신의 특별한 일상을 \n 함께 설계합니다.'}
+              {isNoir ? 'Your Space, \n Reimagined in Shadow' : '당신이 사랑할 공간을 \n 함께 만들겠습니다'}
             </h3>
             <p className={`text-lg font-light mb-16 max-w-md leading-relaxed transition-colors ${isNoir ? 'text-zinc-500' : (isBrutalist ? 'text-zinc-500 font-sans' : 'text-gray-400')
               } ${isEditorial ? 'mx-auto' : ''}`}>
-              {isNoir
-                ? 'THE MIDNIGHT COLLECTION: EXCLUSIVE SPACE FOR EXCLUSIVE CLIENTS.'
-                : (isBrutalist ? 'SYSTEM INQUIRY: DATA-DRIVEN ARCHITECTURE. WE DESIGN THE FUTURE.' : '하이엔드 주거 및 상업 공간 프로젝트를 위한 정교한 제안을 준비하겠습니다.')}
+              {"30평대 아파트 리모델링부터 상업 공간 설계까지. 첫 미팅은 무료입니다. 편하게 연락주세요."}
             </p>
             <div className={`space-y-10 ${isEditorial ? 'flex flex-col items-center' : ''}`}>
               <div className="group flex items-center gap-6 cursor-pointer">
                 <div className={`w-16 h-16 border flex items-center justify-center rounded-full transition-all duration-700 ${isNoir ? 'border-gold/30 group-hover:bg-gold group-hover:border-gold' :
-                    (isBrutalist ? 'border-zinc-800 group-hover:bg-white group-hover:border-white' : 'border-white/10 group-hover:bg-gold group-hover:border-gold')
+                  (isBrutalist ? 'border-zinc-800 group-hover:bg-white group-hover:border-white' : 'border-white/10 group-hover:bg-gold group-hover:border-gold')
                   }`}>
                   <svg className={`w-5 h-5 transition-colors ${isNoir ? 'text-gold group-hover:text-black' :
-                      (isBrutalist ? 'text-zinc-500 group-hover:text-black' : 'text-gold group-hover:text-white')
+                    (isBrutalist ? 'text-zinc-500 group-hover:text-black' : 'text-gold group-hover:text-white')
                     }`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2V7a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
                 <div>
@@ -48,7 +46,7 @@ const Contact: React.FC<ContactProps> = ({ currentPersona }) => {
           </div>
 
           <form className={`p-10 md:p-14 border transition-all duration-1000 ${isNoir ? 'bg-zinc-950/50 border-gold/10 rounded-none' :
-              (isBrutalist ? 'bg-zinc-900 border-zinc-800 rounded-none' : 'bg-white/5 border-white/10 rounded-sm')
+            (isBrutalist ? 'bg-zinc-900 border-zinc-800 rounded-none' : 'bg-white/5 border-white/10 rounded-sm')
             } ${isEditorial ? 'max-w-xl mx-auto w-full' : ''}`}>
             <div className={`space-y-12 ${isBrutalist ? 'font-sans' : ''}`}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

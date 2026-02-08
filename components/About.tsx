@@ -15,20 +15,20 @@ const About: React.FC<AboutProps> = ({ currentPersona }) => {
 
   const philosophyText = {
     [DesignPersona.TIMELESS]: {
-      title: "유연함의 미학.",
-      desc: "저는 20대만의 트렌디한 감각과 하이엔드 주거가 요구하는 클래식한 품격 사이의 완벽한 균형을 탐구합니다. 공간은 머무는 이의 동선에 따라 흐르는 하나의 이야기여야 합니다."
+      title: "MZ세대 디자이너지만, \n 유행을 좇지 않습니다.",
+      desc: "저는 MZ세대 디자이너지만, 유행을 좇지 않습니다. 대신 20대의 감각으로 시간이 지나도 질리지 않는 공간을 만듭니다. 트렌디하지만 클래식하게, 젊지만 성숙하게— 그 미묘한 균형점에서 당신만의 공간 이야기가 시작됩니다."
     },
     [DesignPersona.BRUTALIST]: {
-      title: "STRUCTURAL INTEGRITY.",
-      desc: "거칠고 솔직한 소재의 미학. 본연의 가치를 왜곡하지 않는 본질적인 공간 구성을 지향합니다. 불필요한 장식을 배제하고 구조 그 자체가 갖는 힘에 집중합니다."
+      title: "FORM FOLLOWS \n HONESTY.",
+      desc: "콘크리트는 콘크리트답게, 철은 철답게 쓰입니다. 표면을 감추거나 꾸미지 않고, 재료 본연의 물성과 구조미만으로 공간을 완성합니다. 거칠지만 정직한, 날것 그대로의 건축적 아름다움을 추구합니다."
     },
     [DesignPersona.EDITORIAL]: {
-      title: "Curated \n Void.",
-      desc: "비워냄으로서 채워지는 감각. 정밀하게 큐레이션된 가구와 빛, 그리고 여백의 조화를 통해 예술적 영감이 공존하는 정적인 공간을 디자인합니다."
+      title: "Edited to \n Perfection.",
+      desc: "갤러리에 작품을 거는 것처럼, 공간에 가구를 배치합니다. 모든 오브제는 이유가 있고, 모든 여백엔 의도가 있습니다. 빛의 각도, 그림자의 길이, 질감의 대비까지— 일상을 한 컷 한 컷 큐레이션합니다."
     },
     [DesignPersona.NOIR]: {
-      title: "CINEMATIC \n DEPTH.",
-      desc: "어둠 속에서 더 선명해지는 본질. 빛의 극적인 대조를 통해 공간에 드라마와 품격을 더합니다. 한정된 빛으로 최대한의 가치를 창출하는 독보적인 감각을 경험하십시오."
+      title: "THE BEAUTY \n OF SHADOW.",
+      desc: "어둠은 결점이 아니라 도구입니다. 낮에는 차분한 그레이 톤으로, 밤에는 간접조명이 만드는 레이어드 무드로. 시간대별로 다른 표정을 짓는 공간, 빛보다 그림자를 먼저 설계합니다."
     }
   };
 
@@ -59,8 +59,8 @@ const About: React.FC<AboutProps> = ({ currentPersona }) => {
                 }`}>
                 <p className={`italic text-sm leading-relaxed ${isNoir ? 'text-white' : (isBrutalist ? 'text-zinc-500' : 'text-charcoal')}`}>
                   {isNoir
-                    ? "SHADOW IS NOT THE ABSENCE OF LIGHT, BUT THE PRESENCE OF DEPTH."
-                    : (isBrutalist ? "SYSTEM: REFINEMENT THROUGH REDUCTION. EVERY LINE MUST SERVE A PURPOSE." : (isEditorial ? "Less is enough. The silence of space is the ultimate luxury." : "공간은 머무는 이의 동선에 따라 흐르는 하나의 이야기여야 합니다."))}
+                    ? "THE BEAUTY OF SHADOW: LIGHT IS NOT THE ONLY TOOL."
+                    : (isBrutalist ? "CONCRETE IS CONCRETE, STEEL IS STEEL. NO DISGUISE." : (isEditorial ? "Everything has a reason. Every void has an intention." : "시간이 지나도 질리지 않는 가치, 그 본질에 집중합니다."))}
                 </p>
               </div>
             </div>
