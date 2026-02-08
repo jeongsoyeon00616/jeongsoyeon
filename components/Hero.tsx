@@ -39,7 +39,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens, currentPersona }) => {
           key={index}
           className={`absolute inset-0 z-0 transition-opacity duration-[2000ms] ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
         >
-          <div className="w-full h-full scale-105 animate-[slowZoom_30s_infinite_alternate]">
+          <div className="w-full h-full scale-100 animate-slowZoom">
             <img
               src={image}
               alt={`Interior ${index + 1}`}
@@ -59,7 +59,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens, currentPersona }) => {
         }`}>
         <div className={isEditorial ? 'flex-1' : ''}>
           <div className="overflow-hidden mb-8">
-            <span className={`uppercase tracking-[0.5em] text-[10px] block animate-fadeInUp font-bold ${isNoir ? 'text-gold' : (isBrutalist ? 'text-zinc-500' : (isEditorial ? 'text-[#1a1a1a]' : 'text-gold'))
+            <span className={`uppercase tracking-[0.5em] text-xs md:text-sm block animate-fadeInUp font-bold ${isNoir ? 'text-gold' : (isBrutalist ? 'text-zinc-500' : (isEditorial ? 'text-[#1a1a1a]' : 'text-gold'))
               }`}>
               {isNoir ? 'THE MIDNIGHT COLLECTION' : (isBrutalist ? 'RAW ARCHITECTURE — STUDIO' : (isEditorial ? 'VOL. 01 — ARCHIVE' : 'Soyeon Jeong Design Studio'))}
             </span>
@@ -81,7 +81,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens, currentPersona }) => {
               <span className="italic font-serif">Space.</span>
             </h1>
           ) : (
-            <h1 className="text-5xl md:text-8xl font-serif text-white mb-8 leading-[1.1] animate-fadeInUp">
+            <h1 className="text-6xl md:text-[10rem] font-serif text-white mb-8 leading-[0.9] animate-fadeInUp">
               Quiet <br />
               <span className="italic text-white/90 font-light">Luxury.</span>
             </h1>
@@ -101,12 +101,6 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens, currentPersona }) => {
 
         <div className={`flex flex-col items-center gap-10 animate-fadeInUp delay-300 ${isEditorial ? 'md:items-end md:mb-12' : 'md:flex-row justify-center'
           }`}>
-          <a href="#projects" className={`group flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] font-medium transition-colors ${isBrutalist ? 'text-white font-sans' : 'text-white'
-            }`}>
-            포트폴리오
-            <span className={`h-[1px] transition-all duration-700 ${isBrutalist ? 'bg-zinc-500 w-8 group-hover:w-24' : 'bg-gold w-12 group-hover:w-20'
-              }`}></span>
-          </a>
           <button
             onClick={onOpenDesignLens}
             className={`group flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] font-bold ${isBrutalist ? 'text-zinc-400 font-sans' : (isEditorial ? 'text-white' : 'text-gold')

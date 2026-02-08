@@ -80,7 +80,7 @@ const About: React.FC<AboutProps> = ({ currentPersona }) => {
 
           <div className="lg:col-span-6 space-y-20">
             <div className="relative group">
-              <div className={`overflow-hidden transition-all duration-1000 ${isBrutalist ? 'aspect-[3/4] rounded-none grayscale contrast-125' : 'aspect-square rounded-sm shadow-2xl'
+              <div className={`overflow-hidden transition-all duration-1000 grayscale contrast-125 hover:grayscale-0 ${isBrutalist ? 'aspect-[3/4] rounded-none' : 'aspect-square rounded-sm shadow-2xl'
                 }`}>
                 <img
                   src="https://media.licdn.com/dms/image/v2/D5603AQGsdQViyMD_TA/profile-displayphoto-scale_400_400/B56Zw8Sx7lJQAg-/0/1770538083037?e=1772064000&v=beta&t=e-RtbgPpD0mnN9qaCOmxQih0BMBaEHGLEFzimOn-_4s"
