@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 text-center px-6 max-w-5xl">
         <div className="overflow-hidden mb-6">
-          <span className="text-gold uppercase tracking-[0.4em] text-[10px] block animate-fadeInUp font-semibold">Exquisite Spatial Design Studio</span>
+          <span className="text-gold uppercase tracking-[0.4em] text-[10px] block animate-fadeInUp font-semibold">Soyeon Jeong Design Studio</span>
         </div>
         <h1 className="text-5xl md:text-8xl font-serif text-white mb-8 leading-[1.1] animate-fadeInUp">
           정제된 미학, <br />
