@@ -10,9 +10,11 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 export interface AnalysisData {
     style: string;
     confidence: number;
-    metrics: { name: string; score: number }[];
+    summary: string; // 추가: 전체적인 공간 평론
+    metrics: { name: string; score: number; description: string }[]; // description 추가
     colors: string[];
-    recommendation: string;
+    materials: string[]; // 추가: 주요 소재 분석
+    recommendations: string[]; // 여러 개의 구체적 제안으로 확장
     hotspots: { top: string; left: string; label: string; comment: string }[];
 }
 
@@ -24,8 +26,7 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     const analyzeImage = async (base64Image: string) => {
         const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
         if (!apiKey) {
-            console.error("API Key is missing. Please set VITE_GEMINI_API_KEY in your .env.local or Vercel settings.");
-            // Fallback or Alert
+            console.error("API Key is missing.");
             return;
         }
 
@@ -33,28 +34,36 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
         const prompt = `
-      Analyze this interior design image and provide a JSON response. 
-      The response must be a single JSON object with the following structure:
+      인테리어 디자인 전문가로서 이 사진을 매우 상세하고 깊이 있게 분석해주세요.
+      답변은 반드시 아래 구조의 순수 JSON 데이터여야 합니다. (Markdown 금지)
+
       {
-        "style": "Detailed Style Name (e.g., Japandi, Mid-Century Modern)",
-        "confidence": 95,
+        "style": "공간의 핵심 스타일 명칭 (예: 'Warm Minimalist with Scandi nuances')",
+        "confidence": 98,
+        "summary": "공간의 전체적인 무드, 철학, 설계 의도를 분석한 2~3문장의 깊이 있는 평론",
         "metrics": [
-          { "name": "조화도 (Cohesion)", "score": 85 },
-          { "name": "공간 활용 (Utility)", "score": 70 },
-          { "name": "조명 설계 (Lighting)", "score": 90 }
+          { "name": "조화도 (Cohesion)", "score": 85, "description": "가구와 마감재 간의 시각적 일치성 및 톤앤매너 분석" },
+          { "name": "공간 활용 (Utility)", "score": 75, "description": "가구 배치에 따른 동선 효율 및 공간 개방감 평가" },
+          { "name": "조명 설계 (Lighting)", "score": 92, "description": "자연광과 조명기구의 조화, 빛의 온도와 그림자의 깊이 분석" }
         ],
-        "colors": ["#hex1", "#hex2", "#hex3", "#hex4", "#hex5"],
-        "recommendation": "A professional advice in Korean (max 100 chars)",
+        "colors": ["주요 색상 5가지의 HEX 코드"],
+        "materials": ["인식된 주요 소재 3~4가지 (예: 오크 우드, 텍스처드 패브릭, 브러쉬드 스틸)"],
+        "recommendations": [
+          "공간의 가치를 높이기 위한 구체적인 첫 번째 디자인 제안",
+          "심미적 완성도를 위한 두 번째 가구 혹은 소품 제안",
+          "조명이나 질감을 개선하기 위한 세 번째 제안"
+        ],
         "hotspots": [
-          { "top": "30%", "left": "45%", "label": "Furniture Name", "comment": "Brief comment in Korean" },
-          { "top": "60%", "left": "20%", "label": "Decor Name", "comment": "Brief comment in Korean" }
+          { "top": "가구위치%", "left": "가구위치%", "label": "가구/오브젝트 명칭", "comment": "해당 요소에 대한 전문가적 비평" },
+          { "top": "데코위치%", "left": "데코위치%", "label": "소재/디테일 명칭", "comment": "해당 요소에 대한 전문가적 비평" },
+          { "top": "조명위치%", "left": "조명위치%", "label": "조명/채광 명칭", "comment": "해당 요소에 대한 전문가적 비평" }
         ]
       }
-      Please ignore any markdown formatting and return ONLY the raw JSON. Provide the 'recommendation' and 'hotspots.comment' in Korean for the portfolio's audience.
+
+      모든 한글 텍스트는 고급스러운 인테리어 전문 용어를 사용하여 정중하고 품격 있게 작성하세요.
     `;
 
         try {
-            // Remove base64 prefix
             const base64Data = base64Image.split(',')[1];
             const result = await model.generateContent([
                 prompt,
@@ -67,21 +76,11 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             ]);
             const response = await result.response;
             const text = response.text();
-            // Clean text in case it contains markdown code blocks
             const cleanText = text.replace(/```json|```/g, "").trim();
             const data = JSON.parse(cleanText);
             setAnalysisResult(data);
         } catch (error) {
             console.error("AI Analysis failed:", error);
-            // Fallback default data so it doesn't break
-            setAnalysisResult({
-                style: "Modern Minimalist",
-                confidence: 92,
-                metrics: [{ name: "조화도", score: 85 }, { name: "공간 활용", score: 80 }, { name: "조명 설계", score: 90 }],
-                colors: ["#F5F5F5", "#D2B48C", "#8B4513", "#FFFFFF", "#000000"],
-                recommendation: "전체적으로 조화로운 공간입니다. 빛의 방향을 더 활용해보세요.",
-                hotspots: [{ top: "40%", left: "50%", label: "주요 가구", comment: "형태감이 돋보입니다." }]
-            });
         }
     };
 
@@ -132,7 +131,7 @@ const DesignLens: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                         <h2 className="text-4xl md:text-5xl font-serif mb-6">시선을 분석하다.</h2>
                         <p className="text-white/60 font-light mb-12 leading-relaxed">
                             당신의 공간 사진을 업로드하세요. <br />
-                            제미나이 AI가 인테리어 스타일, 컬러 조화, 공간 가치를 정밀하게 스캔합니다.
+                            Gemini AI가 인테리어 스타일, 컬러 조화, 공간 가치를 정밀하게 스캔합니다.
                         </p>
 
                         <label className="group relative block cursor-pointer">
