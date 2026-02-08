@@ -22,3 +22,20 @@ export interface Certification {
   name: string;
   date: string;
 }
+
+export enum AppState {
+  HOME = 'HOME',
+  UPLOADING = 'UPLOADING',
+  ANALYZING = 'ANALYZING',
+  RESULT = 'RESULT',
+  RETOUCHING = 'RETOUCHING'
+}
+
+export interface DesignAnalysis {
+  styleName: string;
+  description: string;
+  palette: string[];
+  scores: { [key: string]: number };
+  elements: { item: string; score: number; feedback: string }[];
+  suggestions: { title: string; description: string; actionType: string }[];
+}
