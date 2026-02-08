@@ -13,26 +13,27 @@ const Gallery: React.FC<GalleryProps> = ({ currentPersona }) => {
 
   const isBrutalist = currentPersona === DesignPersona.BRUTALIST;
   const isEditorial = currentPersona === DesignPersona.EDITORIAL;
+  const isNoir = currentPersona === DesignPersona.NOIR;
 
   return (
-    <section id="projects" className={`py-40 transition-colors duration-1000 ${isBrutalist ? 'bg-zinc-950 border-t border-zinc-900' : 'bg-[#fcfcfc]'
+    <section id="projects" className={`py-40 transition-colors duration-1000 ${isNoir ? 'bg-black border-t border-zinc-900' : (isBrutalist ? 'bg-zinc-950 border-t border-zinc-900' : 'bg-[#fcfcfc]')
       }`}>
       <div className={`mx-auto px-10 transition-all duration-1000 ${isEditorial ? 'max-w-[100rem]' : 'max-w-7xl'}`}>
-        <div className={`flex flex-col md:flex-row justify-between items-baseline mb-32 border-b pb-12 transition-colors duration-1000 ${isBrutalist ? 'border-zinc-800' : 'border-gray-100'
+        <div className={`flex flex-col md:flex-row justify-between items-baseline mb-32 border-b pb-12 transition-colors duration-1000 ${isNoir ? 'border-zinc-800' : (isBrutalist ? 'border-zinc-800' : 'border-gray-100')
           }`}>
           <div>
-            <h2 className={`text-[10px] font-bold uppercase tracking-[0.4em] mb-4 ${isBrutalist ? 'text-zinc-500' : 'text-gold'
-              }`}>{isEditorial ? 'STUDIO — WORKS' : 'Portfolio'}</h2>
-            <h3 className={`text-5xl md:text-7xl ${isBrutalist ? 'font-sans font-black text-white uppercase tracking-tighter' : 'font-serif text-[#1a1a1a]'
+            <h2 className={`text-[10px] font-bold uppercase tracking-[0.4em] mb-4 ${isNoir ? 'text-gold' : (isBrutalist ? 'text-zinc-500' : 'text-gold')
+              }`}>{isEditorial ? 'STUDIO — WORKS' : (isNoir ? 'SELECTED — NOIR' : 'Portfolio')}</h2>
+            <h3 className={`text-5xl md:text-7xl ${isNoir ? 'font-serif italic text-white' : (isBrutalist ? 'font-sans font-black text-white uppercase tracking-tighter' : 'font-serif text-[#1a1a1a]')
               }`}>
-              {isBrutalist ? 'PROJECT DATA' : '엄선된 파이널 아카이브'}
+              {isNoir ? 'Cinematic Archive' : (isBrutalist ? 'PROJECT DATA' : '엄선된 파이널 아카이브')}
             </h3>
           </div>
-          <div className={`mt-8 md:mt-0 flex gap-10 text-[9px] uppercase tracking-[0.3em] font-bold ${isBrutalist ? 'text-zinc-600' : 'text-gray-400'
+          <div className={`mt-8 md:mt-0 flex gap-10 text-[9px] uppercase tracking-[0.3em] font-bold ${isNoir ? 'text-zinc-500' : (isBrutalist ? 'text-zinc-600' : 'text-gray-400')
             }`}>
-            <button className={`${isBrutalist ? 'text-white' : 'text-[#1a1a1a]'} border-b ${isBrutalist ? 'border-white' : 'border-[#1a1a1a]'}`}>Architecture</button>
+            <button className={`${isNoir ? 'text-gold border-gold' : (isBrutalist ? 'text-white border-white' : 'text-[#1a1a1a] border-[#1a1a1a]')} border-b`}>Archive</button>
             <button className="hover:text-gold transition-colors">Residential</button>
-            <button className="hover:text-gold transition-colors">Concept</button>
+            <button className="hover:text-gold transition-colors">Commercial</button>
           </div>
         </div>
 
@@ -45,17 +46,20 @@ const Gallery: React.FC<GalleryProps> = ({ currentPersona }) => {
                 } ${isEditorial && (index % 4 === 1 || index % 4 === 2) ? 'md:pt-40' : ''}`}
               onClick={() => setSelectedProject(project)}
             >
-              <div className={`relative overflow-hidden mb-10 transition-all duration-700 ${isBrutalist ? 'aspect-square border border-zinc-800 grayscale sepia-[0.2] group-hover:grayscale-0' : 'aspect-[16/11] shadow-sm group-hover:shadow-2xl'
+              <div className={`relative overflow-hidden mb-10 transition-all duration-700 ${isNoir ? 'aspect-[4/5] border border-zinc-900 group-hover:border-gold/50' :
+                  (isBrutalist ? 'aspect-square border border-zinc-800 grayscale sepia-[0.2] group-hover:grayscale-0' : 'aspect-[16/11] shadow-sm group-hover:shadow-2xl')
                 }`}>
                 <img
                   src={project.imageUrl}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+                  className={`w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110 ${isNoir ? 'brightness-[0.4] group-hover:brightness-100 contrast-125 saturate-0 group-hover:saturate-100' : ''
+                    }`}
                 />
-                <div className={`absolute inset-0 transition-opacity duration-700 flex items-center justify-center ${isBrutalist ? 'bg-white/10 opacity-0 group-hover:opacity-100' : 'bg-charcoal/20 opacity-0 group-hover:opacity-100'
+                <div className={`absolute inset-0 transition-opacity duration-700 flex items-center justify-center ${isNoir ? 'bg-black/40 opacity-0 group-hover:opacity-100' :
+                    (isBrutalist ? 'bg-white/10 opacity-0 group-hover:opacity-100' : 'bg-charcoal/20 opacity-0 group-hover:opacity-100')
                   }`}>
                   <span className="text-white text-[9px] uppercase tracking-[0.5em] font-bold translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    Explore Data
+                    {isNoir ? 'View Cinematic' : 'Explore Data'}
                   </span>
                 </div>
               </div>

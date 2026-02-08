@@ -41,18 +41,21 @@ interface WorkflowProps {
 const Workflow: React.FC<WorkflowProps> = ({ currentPersona }) => {
   const isBrutalist = currentPersona === DesignPersona.BRUTALIST;
   const isEditorial = currentPersona === DesignPersona.EDITORIAL;
+  const isNoir = currentPersona === DesignPersona.NOIR;
+  const isDark = isBrutalist || isNoir;
 
   return (
-    <section id="workflow" className={`py-40 transition-colors duration-1000 overflow-hidden ${isBrutalist ? 'bg-zinc-950 border-t border-zinc-900' : 'bg-white'
+    <section id="workflow" className={`py-40 transition-colors duration-1000 overflow-hidden ${isNoir ? 'bg-black border-t border-zinc-900' : (isBrutalist ? 'bg-zinc-950 border-t border-zinc-900' : 'bg-white')
       }`}>
       <div className="max-w-7xl mx-auto px-10">
         <div className={`text-center mb-32 transition-all duration-1000 ${isEditorial ? 'text-left' : ''}`}>
-          <h2 className={`text-[10px] font-bold uppercase tracking-[0.4em] mb-4 ${isBrutalist ? 'text-zinc-600' : 'text-gold'}`}>
-            {isBrutalist ? 'TECHNICAL FLOW' : 'The Process'}
-          </h2>
-          <p className={`text-5xl md:text-7xl ${isBrutalist ? 'font-sans font-black text-white uppercase tracking-tighter' : 'font-serif text-[#1a1a1a]'
+          <h2 className={`text-[10px] font-bold uppercase tracking-[0.4em] mb-4 ${isNoir ? 'text-gold' : (isBrutalist ? 'text-zinc-600' : 'text-gold')
             }`}>
-            {isBrutalist ? 'BUILDING SYSTEM' : '완벽을 향한 정교한 과정'}
+            {isNoir ? 'CINEMATIC PHASES' : (isBrutalist ? 'TECHNICAL FLOW' : 'The Process')}
+          </h2>
+          <p className={`text-5xl md:text-7xl ${isNoir ? 'font-serif italic text-white' : (isBrutalist ? 'font-sans font-black text-white uppercase tracking-tighter' : 'font-serif text-[#1a1a1a]')
+            }`}>
+            {isNoir ? 'Creative Journey' : (isBrutalist ? 'BUILDING SYSTEM' : '완벽을 향한 정교한 과정')}
           </p>
         </div>
 
@@ -66,7 +69,7 @@ const Workflow: React.FC<WorkflowProps> = ({ currentPersona }) => {
                   <img
                     src={step.image}
                     alt={step.title}
-                    className={`w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 ${isBrutalist ? 'grayscale contrast-150 brightness-[0.5] mix-blend-screen' : ''
+                    className={`w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 ${isNoir ? 'brightness-[0.4] contrast-125 saturate-0' : (isBrutalist ? 'grayscale contrast-150 brightness-[0.5] mix-blend-screen' : '')
                       } ${isEditorial ? 'saturate-0 brightness-[0.8]' : ''}`}
                   />
                   {isBrutalist && (
@@ -75,30 +78,30 @@ const Workflow: React.FC<WorkflowProps> = ({ currentPersona }) => {
                       <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-zinc-500"></div>
                     </div>
                   )}
-                  <div className={`absolute top-6 left-6 px-5 py-2 text-[10px] font-bold tracking-widest shadow-lg ${isBrutalist ? 'bg-white text-black' : 'bg-white/95 text-gold'
+                  <div className={`absolute top-6 left-6 px-5 py-2 text-[10px] font-bold tracking-widest shadow-lg ${isNoir ? 'bg-white text-black' : (isBrutalist ? 'bg-white text-black' : 'bg-white/95 text-gold')
                     }`}>
-                    PHASE 0{index + 1}
+                    {isNoir ? 'CHAPTER 0' : 'PHASE 0'}{index + 1}
                   </div>
                 </div>
               </div>
-              <div className={`flex-1 space-y-10 transition-colors duration-1000 ${isBrutalist ? 'text-zinc-400' : ''}`}>
+              <div className={`flex-1 space-y-10 transition-colors duration-1000 ${isDark ? 'text-zinc-400' : ''}`}>
                 <div>
-                  <h4 className={`text-[10px] font-bold tracking-[0.3em] uppercase mb-3 ${isBrutalist ? 'text-zinc-600' : 'text-gold'
+                  <h4 className={`text-[10px] font-bold tracking-[0.3em] uppercase mb-3 ${isNoir ? 'text-gold' : (isBrutalist ? 'text-zinc-600' : 'text-gold')
                     }`}>{step.title}</h4>
-                  <h3 className={`text-3xl md:text-5xl transition-colors duration-1000 ${isBrutalist ? 'font-sans font-bold text-white uppercase italic' : 'font-serif text-[#1a1a1a]'
+                  <h3 className={`text-3xl md:text-5xl transition-colors duration-1000 ${isNoir ? 'font-serif text-white italic' : (isBrutalist ? 'font-sans font-bold text-white uppercase italic' : 'font-serif text-[#1a1a1a]')
                     }`}>{step.subtitle}</h3>
                 </div>
-                <p className={`font-light leading-relaxed text-lg transition-colors duration-1000 ${isBrutalist ? 'text-zinc-500' : 'text-gray-500'
+                <p className={`font-light leading-relaxed text-lg transition-colors duration-1000 ${isDark ? 'text-zinc-500' : 'text-gray-500'
                   }`}>
                   {step.description}
                 </p>
-                <div className={`h-[1px] w-16 transition-colors ${isBrutalist ? 'bg-zinc-800' : 'bg-gold/30'}`}></div>
+                <div className={`h-[1px] w-16 transition-colors ${isDark ? 'bg-zinc-800' : 'bg-gold/30'}`}></div>
                 <ul className="grid grid-cols-1 gap-5">
                   {step.checklist.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-4 text-sm">
-                      <span className={`mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${isBrutalist ? 'bg-zinc-700' : 'bg-gold'
+                      <span className={`mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${isNoir ? 'bg-gold' : (isBrutalist ? 'bg-zinc-700' : 'bg-gold')
                         }`}></span>
-                      <span className={`font-light ${isBrutalist ? 'text-zinc-400' : 'text-gray-700'}`}>{item}</span>
+                      <span className={`font-light ${isDark ? 'text-zinc-400' : 'text-gray-700'}`}>{item}</span>
                     </li>
                   ))}
                 </ul>

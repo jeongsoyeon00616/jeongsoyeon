@@ -11,6 +11,7 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ currentPersona }) => {
   const isBrutalist = currentPersona === DesignPersona.BRUTALIST;
   const isEditorial = currentPersona === DesignPersona.EDITORIAL;
+  const isNoir = currentPersona === DesignPersona.NOIR;
 
   const philosophyText = {
     [DesignPersona.TIMELESS]: {
@@ -24,38 +25,42 @@ const About: React.FC<AboutProps> = ({ currentPersona }) => {
     [DesignPersona.EDITORIAL]: {
       title: "Curated \n Void.",
       desc: "비워냄으로서 채워지는 감각. 정밀하게 큐레이션된 가구와 빛, 그리고 여백의 조화를 통해 예술적 영감이 공존하는 정적인 공간을 디자인합니다."
+    },
+    [DesignPersona.NOIR]: {
+      title: "CINEMATIC \n DEPTH.",
+      desc: "어둠 속에서 더 선명해지는 본질. 빛의 극적인 대조를 통해 공간에 드라마와 품격을 더합니다. 한정된 빛으로 최대한의 가치를 창출하는 독보적인 감각을 경험하십시오."
     }
   };
 
   return (
-    <section id="about" className={`py-40 transition-colors duration-1000 ${isBrutalist ? 'bg-zinc-900 border-t border-zinc-800' : 'bg-white'
+    <section id="about" className={`py-40 transition-colors duration-1000 ${isNoir ? 'bg-black border-t border-zinc-900' : (isBrutalist ? 'bg-zinc-900 border-t border-zinc-800' : 'bg-white')
       }`}>
       <div className={`mx-auto px-10 transition-all duration-1000 ${isEditorial ? 'max-w-6xl' : 'max-w-7xl'}`}>
         <div className={`grid grid-cols-1 lg:grid-cols-12 gap-24 items-start ${isEditorial ? 'flex-col-reverse' : ''}`}>
 
           <div className="lg:col-span-6">
-            <h2 className={`text-[10px] font-bold uppercase tracking-[0.4em] mb-6 ${isBrutalist ? 'text-zinc-500' : 'text-gold'}`}>
-              {isBrutalist ? 'LOGIC — 01' : (isEditorial ? 'IDENTITY' : 'Philosophy')}
+            <h2 className={`text-[10px] font-bold uppercase tracking-[0.4em] mb-6 ${isNoir ? 'text-gold' : (isBrutalist ? 'text-zinc-500' : 'text-gold')}`}>
+              {isNoir ? '04 — NOIR' : (isBrutalist ? 'LOGIC — 01' : (isEditorial ? 'IDENTITY' : 'Philosophy'))}
             </h2>
-            <h3 className={`text-6xl md:text-8xl mb-12 leading-[0.9] transition-all duration-1000 ${isBrutalist ? 'font-sans font-black text-white uppercase tracking-tighter' : 'font-serif text-[#1a1a1a]'
+            <h3 className={`text-6xl md:text-8xl mb-12 leading-[0.9] transition-all duration-1000 ${isNoir ? 'font-serif text-white tracking-tighter' : (isBrutalist ? 'font-sans font-black text-white uppercase tracking-tighter' : 'font-serif text-[#1a1a1a]')
               }`}>
               {philosophyText[currentPersona].title.split('\n').map((line, i) => (
                 <span key={i} className={i === 1 ? 'italic opacity-60' : ''}>{line}<br /></span>
               ))}
             </h3>
 
-            <div className={`space-y-10 font-light leading-relaxed text-lg transition-colors duration-1000 ${isBrutalist ? 'text-zinc-400 font-sans' : 'text-[#4a4a4a]'
+            <div className={`space-y-10 font-light leading-relaxed text-lg transition-colors duration-1000 ${isNoir ? 'text-zinc-500' : (isBrutalist ? 'text-zinc-400 font-sans' : 'text-[#4a4a4a]')
               }`}>
               <p className="first-letter:text-5xl first-letter:font-serif first-letter:mr-3 first-letter:float-left first-letter:text-gold">
                 {philosophyText[currentPersona].desc}
               </p>
 
-              <div className={`border-l-2 pl-8 py-3 transition-colors duration-1000 ${isBrutalist ? 'border-zinc-700 bg-zinc-800/30' : 'border-gold bg-gray-50/50'
+              <div className={`border-l-2 pl-8 py-3 transition-colors duration-1000 ${isNoir ? 'border-gold bg-zinc-900/50' : (isBrutalist ? 'border-zinc-700 bg-zinc-800/30' : 'border-gold bg-gray-50/50')
                 }`}>
-                <p className={`italic text-sm leading-relaxed ${isBrutalist ? 'text-zinc-500' : 'text-charcoal'}`}>
-                  {isBrutalist
-                    ? "SYSTEM: REFINEMENT THROUGH REDUCTION. EVERY LINE MUST SERVE A PURPOSE."
-                    : (isEditorial ? "Less is enough. The silence of space is the ultimate luxury." : "공간은 머무는 이의 동선에 따라 흐르는 하나의 이야기여야 합니다.")}
+                <p className={`italic text-sm leading-relaxed ${isNoir ? 'text-white' : (isBrutalist ? 'text-zinc-500' : 'text-charcoal')}`}>
+                  {isNoir
+                    ? "SHADOW IS NOT THE ABSENCE OF LIGHT, BUT THE PRESENCE OF DEPTH."
+                    : (isBrutalist ? "SYSTEM: REFINEMENT THROUGH REDUCTION. EVERY LINE MUST SERVE A PURPOSE." : (isEditorial ? "Less is enough. The silence of space is the ultimate luxury." : "공간은 머무는 이의 동선에 따라 흐르는 하나의 이야기여야 합니다."))}
                 </p>
               </div>
             </div>

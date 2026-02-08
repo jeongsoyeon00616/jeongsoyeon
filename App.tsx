@@ -17,13 +17,16 @@ const App: React.FC = () => {
   const getPersonaClass = () => {
     switch (currentPersona) {
       case DesignPersona.BRUTALIST: return 'persona-brutalist font-sans';
-      case DesignPersona.EDITORIAL: return 'persona-editorial font-inter';
+      case DesignPersona.EDITORIAL: return 'persona-editorial font-inter font-light';
+      case DesignPersona.NOIR: return 'persona-noir font-serif tracking-tight';
       default: return 'persona-timeless font-serif';
     }
   };
 
+  const isDarkTone = currentPersona === DesignPersona.BRUTALIST || currentPersona === DesignPersona.NOIR;
+
   return (
-    <div className={`min-h-screen transition-colors duration-1000 ${currentPersona === DesignPersona.BRUTALIST ? 'bg-zinc-900 text-white' : 'bg-off-white text-charcoal'
+    <div className={`min-h-screen transition-colors duration-1000 ${isDarkTone ? 'bg-zinc-950 text-white' : 'bg-off-white text-charcoal'
       } ${getPersonaClass()}`}>
       <Navbar
         onOpenDesignLens={() => setIsDesignLensOpen(true)}

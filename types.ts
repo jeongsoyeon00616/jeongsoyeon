@@ -42,7 +42,8 @@ export enum AppState {
 export enum DesignPersona {
   TIMELESS = 'TIMELESS', // Warm Luxury, Classic
   BRUTALIST = 'BRUTALIST', // Raw, Bold, Industrial
-  EDITORIAL = 'EDITORIAL'  // Minimal, Magazine, Airy
+  EDITORIAL = 'EDITORIAL', // Minimal, Magazine, Airy
+  NOIR = 'NOIR'            // Cinematic, Mysterious, High-Contrast
 }
 
 export interface DesignAnalysis {

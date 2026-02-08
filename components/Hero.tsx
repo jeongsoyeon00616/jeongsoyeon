@@ -29,9 +29,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens, currentPersona }) => {
 
   const isBrutalist = currentPersona === DesignPersona.BRUTALIST;
   const isEditorial = currentPersona === DesignPersona.EDITORIAL;
+  const isNoir = currentPersona === DesignPersona.NOIR;
 
   return (
-    <section className={`relative h-screen w-full flex items-center justify-center overflow-hidden transition-colors duration-1000 ${isBrutalist ? 'bg-zinc-950' : 'bg-charcoal'
+    <section className={`relative h-screen w-full flex items-center justify-center overflow-hidden transition-colors duration-1000 ${isNoir ? 'bg-black' : (isBrutalist ? 'bg-zinc-950' : 'bg-charcoal')
       }`}>
       {BACKGROUND_IMAGES.map((image, index) => (
         <div
@@ -42,24 +43,34 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens, currentPersona }) => {
             <img
               src={image}
               alt={`Interior ${index + 1}`}
-              className={`w-full h-full object-cover ${isBrutalist ? 'grayscale contrast-125 brightness-[0.4]' : 'brightness-[0.7]'
+              className={`w-full h-full object-cover ${isNoir ? 'brightness-[0.3] contrast-[1.4] saturate-[0.1]' :
+                (isBrutalist ? 'grayscale contrast-125 brightness-[0.4]' : 'brightness-[0.7]')
                 } ${isEditorial ? 'saturate-[0.6] brightness-[0.8]' : ''}`}
             />
           </div>
         </div>
       ))}
 
+      {isNoir && (
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black pointer-events-none z-[1]"></div>
+      )}
+
       <div className={`relative z-10 text-center px-6 transition-all duration-1000 ${isEditorial ? 'max-w-7xl w-full flex flex-col md:flex-row justify-between items-end text-left' : 'max-w-5xl'
         }`}>
         <div className={isEditorial ? 'flex-1' : ''}>
           <div className="overflow-hidden mb-8">
-            <span className={`uppercase tracking-[0.5em] text-[9px] block animate-fadeInUp font-bold ${isBrutalist ? 'text-zinc-500' : (isEditorial ? 'text-[#1a1a1a]' : 'text-gold')
+            <span className={`uppercase tracking-[0.5em] text-[10px] block animate-fadeInUp font-bold ${isNoir ? 'text-gold' : (isBrutalist ? 'text-zinc-500' : (isEditorial ? 'text-[#1a1a1a]' : 'text-gold'))
               }`}>
-              {isBrutalist ? 'RAW ARCHITECTURE — STUDIO' : (isEditorial ? 'VOL. 01 — ARCHIVE' : 'Soyeon Jeong Design Studio')}
+              {isNoir ? 'THE MIDNIGHT COLLECTION' : (isBrutalist ? 'RAW ARCHITECTURE — STUDIO' : (isEditorial ? 'VOL. 01 — ARCHIVE' : 'Soyeon Jeong Design Studio'))}
             </span>
           </div>
 
-          {isBrutalist ? (
+          {isNoir ? (
+            <h1 className="text-7xl md:text-[11rem] font-serif font-black text-white mb-4 tracking-tighter leading-[0.8] animate-fadeInUp italic">
+              MIDNIGHT <br />
+              <span className="text-gold not-italic">LUXURY.</span>
+            </h1>
+          ) : isBrutalist ? (
             <h1 className="text-6xl md:text-9xl font-sans font-black text-white mb-8 tracking-tighter leading-[0.9] animate-fadeInUp">
               BRUTAL <br />
               <span className="text-zinc-600">HONESTY.</span>
@@ -77,11 +88,13 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens, currentPersona }) => {
           )}
 
           {!isEditorial && (
-            <p className={`text-sm md:text-lg font-light mb-12 max-w-xl mx-auto tracking-wide leading-relaxed animate-fadeInUp delay-200 ${isBrutalist ? 'text-zinc-400 font-sans' : 'text-white/70'
+            <p className={`text-sm md:text-lg font-light mb-12 max-w-xl mx-auto tracking-wide leading-relaxed animate-fadeInUp delay-200 ${isNoir ? 'text-gray-400 font-serif' : (isBrutalist ? 'text-zinc-400 font-sans' : 'text-white/70')
               }`}>
-              {isBrutalist
-                ? '가공되지 않은 소재와 형태의 조화. 본질을 꿰뚫는 공간의 무게감을 경험하십시오.'
-                : '공간의 본질에 집중하여 일상의 품격을 높이는 하이엔드 미니멀리즘의 정수를 선사합니다.'}
+              {isNoir
+                ? '빛과 어둠이 빚어내는 드라마틱한 공간. 감각을 깨우는 정교한 하이엔드 무드를 제안합니다.'
+                : (isBrutalist
+                  ? '가공되지 않은 소재와 형태의 조화. 본질을 꿰뚫는 공간의 무게감을 경험하십시오.'
+                  : '공간의 본질에 집중하여 일상의 품격을 높이는 하이엔드 미니멀리즘의 정수를 선사합니다.')}
             </p>
           )}
         </div>
