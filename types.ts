@@ -39,6 +39,12 @@ export enum AppState {
   RETOUCHING = 'RETOUCHING'
 }
 
+export enum DesignPersona {
+  TIMELESS = 'TIMELESS', // Warm Luxury, Classic
+  BRUTALIST = 'BRUTALIST', // Raw, Bold, Industrial
+  EDITORIAL = 'EDITORIAL'  // Minimal, Magazine, Airy
+}
+
 export interface DesignAnalysis {
   styleName: string;
   description: string;

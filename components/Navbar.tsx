@@ -2,11 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { DesignPersona } from '../types';
+
 interface NavbarProps {
   onOpenDesignLens: () => void;
+  currentPersona: DesignPersona;
+  onPersonaChange: (persona: DesignPersona) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
+const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens, currentPersona, onPersonaChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -18,35 +22,66 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const personaOptions = [
+    { id: DesignPersona.TIMELESS, label: 'TIMELESS', icon: '✧' },
+    { id: DesignPersona.BRUTALIST, label: 'BRUTALIST', icon: '■' },
+    { id: DesignPersona.EDITORIAL, label: 'EDITORIAL', icon: '□' }
+  ];
+
   const navLinks = [
     { name: '철학', href: '#about' },
-    { name: '포토폴리오', href: '#projects' },
+    { name: '포트폴리오', href: '#projects' },
     { name: '프로세스', href: '#workflow' },
     { name: '문의하기', href: '#contact' },
   ];
 
+  const isDarkTone = currentPersona === DesignPersona.BRUTALIST;
+
   return (
     <>
-      <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/95 backdrop-blur-lg py-4 border-b border-gray-100' : 'bg-transparent py-8'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-700 ${isScrolled
+          ? (isDarkTone ? 'bg-zinc-900/95 border-zinc-800' : 'bg-white/95 border-gray-100') + ' py-4 border-b'
+          : 'bg-transparent py-8'
+        }`}>
         <div className="max-w-7xl mx-auto px-10 flex justify-between items-center">
-          <a href="#" className={`text-2xl font-serif tracking-tight transition-colors duration-300 ${isScrolled ? 'text-[#1a1a1a]' : 'text-white'}`}>
+          <a href="#" className={`text-2xl font-serif tracking-tight transition-colors duration-500 ${isScrolled || isDarkTone ? (isDarkTone ? 'text-white' : 'text-[#1a1a1a]') : 'text-white'
+            }`}>
             SOYEON<span className="text-gold">.</span>JEONG
           </a>
 
-          <div className={`hidden md:flex gap-12 text-[11px] font-medium uppercase tracking-[0.25em] ${isScrolled ? 'text-gray-500' : 'text-white/70'}`}>
+          <div className={`hidden lg:flex items-center gap-10 text-[10px] font-bold uppercase tracking-[0.3em] ${isScrolled || isDarkTone ? (isDarkTone ? 'text-zinc-400' : 'text-gray-500') : 'text-white/60'
+            }`}>
             {navLinks.map((link) => (
               <a key={link.name} href={link.href} className="hover:text-gold transition-colors">{link.name}</a>
             ))}
             <button onClick={onOpenDesignLens} className="hover:text-gold transition-colors text-left uppercase">DesignLens AI</button>
+
+            <div className={`flex items-center gap-2 px-1 py-1 rounded-full border ${isDarkTone ? 'border-zinc-800 bg-zinc-800/50' : 'border-gray-200 bg-gray-50'}`}>
+              {personaOptions.map((opt) => (
+                <button
+                  key={opt.id}
+                  onClick={() => onPersonaChange(opt.id)}
+                  className={`px-3 py-1.5 rounded-full transition-all duration-500 text-[9px] ${currentPersona === opt.id
+                      ? 'bg-gold text-white shadow-lg scale-105'
+                      : (isDarkTone ? 'text-zinc-500 hover:text-white' : 'text-gray-400 hover:text-gold')
+                    }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="flex items-center gap-6">
-            <button className={`hidden md:block text-[11px] uppercase tracking-widest px-6 py-2 border ${isScrolled ? 'border-[#1a1a1a] text-[#1a1a1a]' : 'border-white text-white'} hover:bg-gold hover:border-gold hover:text-white transition-all`}>
+            <button className={`hidden sm:block text-[10px] uppercase tracking-widest px-6 py-2.5 border transition-all duration-500 ${isScrolled || isDarkTone
+                ? (isDarkTone ? 'border-white text-white hover:bg-white hover:text-zinc-900' : 'border-charcoal text-charcoal hover:bg-gold hover:border-gold hover:text-white')
+                : 'border-white text-white hover:bg-gold hover:border-gold'
+              }`}>
               컨설팅 문의
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`md:hidden p-2 ${isScrolled ? 'text-[#1a1a1a]' : 'text-white'}`}
+              className={`p-2 transition-colors duration-500 ${isScrolled || isDarkTone ? (isDarkTone ? 'text-white' : 'text-[#1a1a1a]') : 'text-white'}`}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}></path>

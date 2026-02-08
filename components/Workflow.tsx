@@ -32,49 +32,73 @@ const STEPS = [
   }
 ];
 
-const Workflow: React.FC = () => {
+import { DesignPersona } from '../types';
+
+interface WorkflowProps {
+  currentPersona: DesignPersona;
+}
+
+const Workflow: React.FC<WorkflowProps> = ({ currentPersona }) => {
+  const isBrutalist = currentPersona === DesignPersona.BRUTALIST;
+  const isEditorial = currentPersona === DesignPersona.EDITORIAL;
+
   return (
-    <section id="workflow" className="py-32 bg-white overflow-hidden">
+    <section id="workflow" className={`py-40 transition-colors duration-1000 overflow-hidden ${isBrutalist ? 'bg-zinc-950 border-t border-zinc-900' : 'bg-white'
+      }`}>
       <div className="max-w-7xl mx-auto px-10">
-        <div className="text-center mb-24">
-          <h2 className="text-gold text-[11px] font-bold uppercase tracking-[0.3em] mb-4">The Process</h2>
-          <p className="text-4xl md:text-5xl font-serif text-[#1a1a1a]">완벽을 향한 정교한 과정</p>
+        <div className={`text-center mb-32 transition-all duration-1000 ${isEditorial ? 'text-left' : ''}`}>
+          <h2 className={`text-[10px] font-bold uppercase tracking-[0.4em] mb-4 ${isBrutalist ? 'text-zinc-600' : 'text-gold'}`}>
+            {isBrutalist ? 'TECHNICAL FLOW' : 'The Process'}
+          </h2>
+          <p className={`text-5xl md:text-7xl ${isBrutalist ? 'font-sans font-black text-white uppercase tracking-tighter' : 'font-serif text-[#1a1a1a]'
+            }`}>
+            {isBrutalist ? 'BUILDING SYSTEM' : '완벽을 향한 정교한 과정'}
+          </p>
         </div>
 
-        <div className="space-y-32">
+        <div className="space-y-40">
           {STEPS.map((step, index) => (
-            <div key={index} className={`flex flex-col md:flex-row items-center gap-16 lg:gap-32 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+            <div key={index} className={`flex flex-col md:flex-row items-center gap-20 lg:gap-32 ${index % 2 === 1 && !isEditorial ? 'md:flex-row-reverse' : ''
+              }`}>
               <div className="flex-1 w-full">
-                <div className="relative aspect-[16/10] overflow-hidden shadow-2xl group">
+                <div className={`relative transition-all duration-1000 group ${isBrutalist ? 'aspect-[4/3] rounded-none' : 'aspect-[16/10] overflow-hidden'
+                  } ${!isBrutalist && 'shadow-2xl'}`}>
                   <img
                     src={step.image}
                     alt={step.title}
-                    className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200";
-                    }}
+                    className={`w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 ${isBrutalist ? 'grayscale contrast-150 brightness-[0.5] mix-blend-screen' : ''
+                      } ${isEditorial ? 'saturate-0 brightness-[0.8]' : ''}`}
                   />
-                  <div className="absolute inset-0 bg-charcoal/10 group-hover:bg-transparent transition-colors duration-700"></div>
-                  <div className="absolute top-8 left-8 bg-white/90 backdrop-blur-sm px-6 py-3 text-gold text-xs font-bold tracking-widest shadow-lg">
-                    STAGE 0{index + 1}
+                  {isBrutalist && (
+                    <div className="absolute inset-0 border border-zinc-800 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-zinc-500"></div>
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-zinc-500"></div>
+                    </div>
+                  )}
+                  <div className={`absolute top-6 left-6 px-5 py-2 text-[10px] font-bold tracking-widest shadow-lg ${isBrutalist ? 'bg-white text-black' : 'bg-white/95 text-gold'
+                    }`}>
+                    PHASE 0{index + 1}
                   </div>
                 </div>
               </div>
-              <div className="flex-1 space-y-8">
+              <div className={`flex-1 space-y-10 transition-colors duration-1000 ${isBrutalist ? 'text-zinc-400' : ''}`}>
                 <div>
-                  <h4 className="text-gold text-[11px] font-bold tracking-[0.2em] uppercase mb-2">{step.title}</h4>
-                  <h3 className="text-3xl md:text-4xl font-serif text-[#1a1a1a] leading-tight">{step.subtitle}</h3>
+                  <h4 className={`text-[10px] font-bold tracking-[0.3em] uppercase mb-3 ${isBrutalist ? 'text-zinc-600' : 'text-gold'
+                    }`}>{step.title}</h4>
+                  <h3 className={`text-3xl md:text-5xl transition-colors duration-1000 ${isBrutalist ? 'font-sans font-bold text-white uppercase italic' : 'font-serif text-[#1a1a1a]'
+                    }`}>{step.subtitle}</h3>
                 </div>
-                <p className="text-gray-500 font-light leading-relaxed text-lg">
+                <p className={`font-light leading-relaxed text-lg transition-colors duration-1000 ${isBrutalist ? 'text-zinc-500' : 'text-gray-500'
+                  }`}>
                   {step.description}
                 </p>
-                <div className="h-[1px] w-12 bg-gold/30"></div>
-                <ul className="space-y-4">
+                <div className={`h-[1px] w-16 transition-colors ${isBrutalist ? 'bg-zinc-800' : 'bg-gold/30'}`}></div>
+                <ul className="grid grid-cols-1 gap-5">
                   {step.checklist.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-4 text-sm text-gray-700">
-                      <span className="mt-1 w-1.5 h-1.5 bg-gold rounded-full flex-shrink-0"></span>
-                      <span className="font-light">{item}</span>
+                    <li key={idx} className="flex items-start gap-4 text-sm">
+                      <span className={`mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${isBrutalist ? 'bg-zinc-700' : 'bg-gold'
+                        }`}></span>
+                      <span className={`font-light ${isBrutalist ? 'text-zinc-400' : 'text-gray-700'}`}>{item}</span>
                     </li>
                   ))}
                 </ul>
