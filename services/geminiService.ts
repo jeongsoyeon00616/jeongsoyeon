@@ -10,7 +10,7 @@ export const analyzeInterior = async (image: string): Promise<DesignAnalysis> =>
     throw new Error("API Key is missing. Please set VITE_GEMINI_API_KEY.");
   }
 
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-3.0-flash" });
   const base64Data = image.split(',')[1];
 
   const prompt = `
