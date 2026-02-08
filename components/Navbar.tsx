@@ -1,7 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onOpenDesignLens: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,11 +25,12 @@ const Navbar: React.FC = () => {
         <div className={`hidden md:flex gap-12 text-[11px] font-medium uppercase tracking-[0.25em] ${isScrolled ? 'text-gray-500' : 'text-white/70'}`}>
           <a href="#about" className="hover:text-gold transition-colors">Philosophy</a>
           <a href="#projects" className="hover:text-gold transition-colors">Portfolio</a>
+          <button onClick={onOpenDesignLens} className="hover:text-gold transition-colors text-left uppercase">DesignLens AI</button>
           <a href="#workflow" className="hover:text-gold transition-colors">Process</a>
           <a href="#contact" className="hover:text-gold transition-colors">Contact</a>
         </div>
         <div className="flex items-center gap-6">
-           <button className={`hidden md:block text-[11px] uppercase tracking-widest px-6 py-2 border ${isScrolled ? 'border-[#1a1a1a] text-[#1a1a1a]' : 'border-white text-white'} hover:bg-gold hover:border-gold hover:text-white transition-all`}>
+          <button className={`hidden md:block text-[11px] uppercase tracking-widest px-6 py-2 border ${isScrolled ? 'border-[#1a1a1a] text-[#1a1a1a]' : 'border-white text-white'} hover:bg-gold hover:border-gold hover:text-white transition-all`}>
             Consulting
           </button>
           <button className={`md:hidden ${isScrolled ? 'text-[#1a1a1a]' : 'text-white'}`}>

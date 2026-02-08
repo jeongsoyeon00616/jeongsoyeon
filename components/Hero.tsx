@@ -10,7 +10,11 @@ const BACKGROUND_IMAGES = [
   "/wood_white_interior_hero_1770539296677.png"
 ];
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onOpenDesignLens: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -57,11 +61,18 @@ const Hero: React.FC = () => {
           공간의 본질에 집중하여 일상의 품격을 높이는 <br className="hidden md:block" />
           하이엔드 미니멀리즘의 정수를 선사합니다.
         </p>
-        <div className="flex justify-center gap-10 animate-fadeInUp delay-300">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-10 animate-fadeInUp delay-300">
           <a href="#projects" className="group flex items-center gap-4 text-white text-[11px] uppercase tracking-[0.3em]">
             Explore Portfolio
             <span className="w-12 h-[1px] bg-gold group-hover:w-20 transition-all duration-500"></span>
           </a>
+          <button
+            onClick={onOpenDesignLens}
+            className="group flex items-center gap-4 text-gold text-[11px] uppercase tracking-[0.3em] font-bold"
+          >
+            Launch DesignLens AI
+            <span className="w-5 h-5 border border-gold rounded-full flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all">→</span>
+          </button>
         </div>
       </div>
 
