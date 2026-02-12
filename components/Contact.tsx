@@ -1,97 +1,102 @@
+import React, { useState } from 'react';
 
-import React from 'react';
+const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
-import { DesignPersona } from '../types';
-
-interface ContactProps {
-  currentPersona: DesignPersona;
-}
-
-const Contact: React.FC<ContactProps> = ({ currentPersona }) => {
-  const isBrutalist = currentPersona === DesignPersona.BRUTALIST;
-  const isEditorial = currentPersona === DesignPersona.EDITORIAL;
-  const isNoir = currentPersona === DesignPersona.NOIR;
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log('Form submitted:', formData);
+  };
 
   return (
-    <footer id="contact" className={`pt-40 pb-20 transition-colors duration-1000 ${isNoir ? 'bg-black text-white' : (isBrutalist ? 'bg-zinc-950 text-white' : 'bg-charcoal text-white')
-      }`}>
-      <div className={`mx-auto px-10 transition-all duration-1000 ${isEditorial ? 'max-w-6xl' : 'max-w-7xl'}`}>
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-24 mb-40 ${isEditorial ? 'flex-col' : ''}`}>
-          <div className={isEditorial ? 'text-center max-w-2xl mx-auto' : ''}>
-            <h2 className={`text-[10px] font-bold uppercase tracking-[0.4em] mb-6 ${isNoir ? 'text-gold' : (isBrutalist ? 'text-zinc-600' : 'text-gold')
-              }`}>Contact Us</h2>
-            <h3 className={`text-5xl md:text-7xl mb-12 leading-[0.95] transition-all duration-1000 ${isNoir ? 'font-serif italic tracking-tighter' : (isBrutalist ? 'font-sans font-black uppercase tracking-tighter' : 'font-serif')
-              }`}>
-              {isNoir ? 'Your Space, \n Redefined' : '당신이 오래 사랑할 공간을 \n 함께 만들겠습니다'}
-            </h3>
-            <p className={`text-lg font-light mb-16 max-w-md leading-relaxed transition-colors ${isNoir ? 'text-zinc-500' : (isBrutalist ? 'text-zinc-500 font-sans' : 'text-gray-400')
-              } ${isEditorial ? 'mx-auto' : ''}`}>
-              {"30평대 아파트 리모델링부터 상업 공간 설계까지. 첫 상담은 부담 없이, 편하게 연락주세요."}
-            </p>
-            <div className={`space-y-10 ${isEditorial ? 'flex flex-col items-center' : ''}`}>
-              <div className="group flex items-center gap-6 cursor-pointer">
-                <div className={`w-16 h-16 border flex items-center justify-center rounded-full transition-all duration-700 ${isNoir ? 'border-gold/30 group-hover:bg-gold group-hover:border-gold' :
-                  (isBrutalist ? 'border-zinc-800 group-hover:bg-white group-hover:border-white' : 'border-white/10 group-hover:bg-gold group-hover:border-gold')
-                  }`}>
-                  <svg className={`w-5 h-5 transition-colors ${isNoir ? 'text-gold group-hover:text-black' :
-                    (isBrutalist ? 'text-zinc-500 group-hover:text-black' : 'text-gold group-hover:text-white')
-                    }`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2V7a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                </div>
-                <div>
-                  <p className={`text-[9px] uppercase tracking-[0.4em] mb-1 font-bold ${isNoir ? 'text-gold' : (isBrutalist ? 'text-zinc-700' : 'text-gray-500')}`}>Official Email</p>
-                  <p className={`text-2xl font-light tracking-wide ${isBrutalist ? 'font-sans' : ''}`}>soyeon@jeongsoyeon.com</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <form className={`p-10 md:p-14 border transition-all duration-1000 ${isNoir ? 'bg-zinc-950/50 border-gold/10 rounded-none' :
-            (isBrutalist ? 'bg-zinc-900 border-zinc-800 rounded-none' : 'bg-white/5 border-white/10 rounded-sm')
-            } ${isEditorial ? 'max-w-xl mx-auto w-full' : ''}`}>
-            <div className={`space-y-12 ${isBrutalist ? 'font-sans' : ''}`}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div className="space-y-4">
-                  <label className={`text-[9px] uppercase tracking-[0.3em] font-black ${isNoir ? 'text-gold' : (isBrutalist ? 'text-zinc-600' : 'text-gold')}`}>Client Name</label>
-                  <input type="text" className={`w-full bg-transparent border-b pb-4 focus:outline-none transition-colors font-light text-lg ${isNoir ? 'border-zinc-800 focus:border-gold' : (isBrutalist ? 'border-zinc-800 focus:border-white' : 'border-white/20 focus:border-gold')
-                    }`} placeholder="성함" />
-                </div>
-                <div className="space-y-4">
-                  <label className={`text-[9px] uppercase tracking-[0.3em] font-black ${isNoir ? 'text-gold' : (isBrutalist ? 'text-zinc-600' : 'text-gold')}`}>Contact Info</label>
-                  <input type="email" className={`w-full bg-transparent border-b pb-4 focus:outline-none transition-colors font-light text-lg ${isNoir ? 'border-zinc-800 focus:border-gold' : (isBrutalist ? 'border-zinc-800 focus:border-white' : 'border-white/20 focus:border-gold')
-                    }`} placeholder="연락처" />
-                </div>
-              </div>
-              <div className="space-y-4">
-                <label className={`text-[9px] uppercase tracking-[0.3em] font-black ${isBrutalist ? 'text-zinc-600' : 'text-gold'}`}>Inquiry</label>
-                <textarea rows={4} className={`w-full bg-transparent border-b pb-4 focus:outline-none transition-colors font-light text-lg resize-none ${isBrutalist ? 'border-zinc-800 focus:border-white' : 'border-white/20 focus:border-gold'
-                  }`} placeholder="프로젝트 규모 및 컨셉"></textarea>
-              </div>
-              <div className="pt-8">
-                <button className={`group relative w-full py-6 font-black uppercase tracking-[0.5em] text-[10px] overflow-hidden transition-all duration-700 ${isBrutalist ? 'bg-white text-black' : 'bg-gold text-white'
-                  }`}>
-                  <span className="relative z-10">Send Request</span>
-                  <div className={`absolute inset-0 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ${isBrutalist ? 'bg-zinc-200' : 'bg-white/20'
-                    }`}></div>
-                </button>
-              </div>
-            </div>
-          </form>
+    <section id="contact" className="py-32 bg-off-white transition-colors duration-1000">
+      <div className="max-w-4xl mx-auto px-10">
+        <div className="text-center mb-20">
+          <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4 text-gold">
+            Get in Touch
+          </h2>
+          <p className="text-4xl md:text-5xl font-serif text-[#1a1a1a]">
+            Start Your Journey
+          </p>
         </div>
 
-        <div className={`border-t pt-16 flex flex-col md:flex-row justify-between items-center gap-8 border-white/5`}>
-          <div className={`text-2xl tracking-tighter uppercase ${isBrutalist ? 'font-sans font-black italic' : 'font-serif'}`}>
-            SOYEON<span className="text-gold">.</span>JEONG
+        <form onSubmit={handleSubmit} className="space-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="group relative">
+              <input
+                type="text"
+                className="w-full bg-transparent border-b border-gray-200 py-4 text-lg focus:outline-none focus:border-gold transition-colors text-[#1a1a1a] placeholder-transparent peer"
+                placeholder="Name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                id="name"
+              />
+              <label
+                htmlFor="name"
+                className="absolute left-0 top-4 text-gray-400 text-sm transition-all duration-300 peer-focus:-top-6 peer-focus:text-xs peer-focus:text-gold peer-[&:not(:placeholder-shown)]:-top-6 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-gold"
+              >
+                NAME
+              </label>
+            </div>
+            <div className="group relative">
+              <input
+                type="email"
+                className="w-full bg-transparent border-b border-gray-200 py-4 text-lg focus:outline-none focus:border-gold transition-colors text-[#1a1a1a] placeholder-transparent peer"
+                placeholder="Email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                id="email"
+              />
+              <label
+                htmlFor="email"
+                className="absolute left-0 top-4 text-gray-400 text-sm transition-all duration-300 peer-focus:-top-6 peer-focus:text-xs peer-focus:text-gold peer-[&:not(:placeholder-shown)]:-top-6 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-gold"
+              >
+                EMAIL
+              </label>
+            </div>
           </div>
-          <p className={`text-[10px] uppercase tracking-widest ${isBrutalist ? 'text-zinc-700' : 'text-gray-600'}`}>© 2026 ARCHIVE SYSTEM. All Rights Reserved.</p>
-          <div className="flex gap-12">
-            {['Instagram', 'Pinterest', 'Behance'].map(social => (
-              <a key={social} href="#" className={`text-[10px] uppercase tracking-[0.3em] transition-colors ${isBrutalist ? 'text-zinc-700 hover:text-white' : 'text-gray-500 hover:text-gold'
-                }`}>{social}</a>
-            ))}
+
+          <div className="group relative">
+            <textarea
+              className="w-full bg-transparent border-b border-gray-200 py-4 text-lg focus:outline-none focus:border-gold transition-colors text-[#1a1a1a] placeholder-transparent peer min-h-[100px] resize-none"
+              placeholder="Message"
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              id="message"
+            />
+            <label
+              htmlFor="message"
+              className="absolute left-0 top-4 text-gray-400 text-sm transition-all duration-300 peer-focus:-top-6 peer-focus:text-xs peer-focus:text-gold peer-[&:not(:placeholder-shown)]:-top-6 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-gold"
+            >
+              MESSAGE
+            </label>
+          </div>
+
+          <div className="text-center pt-10">
+            <button
+              type="submit"
+              className="px-12 py-4 border border-[#1a1a1a] text-[#1a1a1a] text-xs uppercase tracking-[0.3em] font-bold hover:bg-gold hover:border-gold hover:text-white transition-all duration-500"
+            >
+              Submit Inquiry
+            </button>
+          </div>
+        </form>
+
+        <div className="mt-32 pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-medium text-gray-400">
+          <div>© 2025 Studio Soyeon. All Rights Reserved.</div>
+          <div className="flex gap-8">
+            <a href="#" className="hover:text-gold transition-colors">Instagram</a>
+            <a href="#" className="hover:text-gold transition-colors">LinkedIn</a>
+            <a href="#" className="hover:text-gold transition-colors">Behance</a>
           </div>
         </div>
       </div>
-    </footer>
+    </section>
   );
 };
 
