@@ -33,9 +33,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 flex justify-between items-center whitespace-nowrap">
           {/* LEFT: LOGO */}
           <div className="flex-1">
-            <a href="#" className={`text-xl md:text-2xl font-sans font-black tracking-[0.1em] transition-colors duration-500 uppercase ${isScrolled ? 'text-[#1a1a1a]' : 'text-white'
+            <a href="#" className={`text-xl md:text-2xl font-serif tracking-tighter transition-colors duration-500 uppercase ${isScrolled ? 'text-[#1a1a1a]' : 'text-white'
               }`}>
-              JEONGSOYEON
+              JEONG SOYEON
             </a>
           </div>
 

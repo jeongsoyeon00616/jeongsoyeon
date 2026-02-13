@@ -30,11 +30,12 @@ const About: React.FC = () => {
           </div>
           <div className="lg:col-span-6 space-y-20">
             <div className="relative group">
-              <div className="overflow-hidden transition-all duration-1000 grayscale contrast-125 hover:grayscale-0 aspect-square rounded-sm shadow-2xl">
+              <div className="overflow-hidden transition-all duration-1000 aspect-square rounded-sm shadow-2xl bg-gray-100">
                 <img
-                  src="https://media.licdn.com/dms/image/v2/D5603AQGsdQViyMD_TA/profile-displayphoto-scale_400_400/B56Zw8Sx7lJQAg-/0/1770538083037?e=1772064000&v=beta&t=e-RtbgPpD0mnN9qaCOmxQih0BMBaEHGLEFzimOn-_4s"
+                  src="/profile.png"
                   alt="Designer Soyeon Jeong"
                   className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+                  style={{ imageRendering: 'auto' }}
                 />
               </div>
               <div className="absolute -bottom-10 -right-10 w-40 h-40 border border-gold/30 rounded-full flex items-center justify-center animate-[spin_10s_linear_infinite]">
