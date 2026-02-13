@@ -45,17 +45,17 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
       <div className="relative z-10 text-center px-6 transition-all duration-1000 max-w-5xl">
         <div className="overflow-hidden mb-8">
           <span className="uppercase tracking-[0.5em] text-xs md:text-sm block animate-fadeInUp font-bold text-gold">
-            Soyeon Jeong Portfolio
+            Jeong Soyeon Portfolio
           </span>
         </div>
 
         <h1 className="text-6xl md:text-[9rem] font-serif text-white mb-8 leading-[0.9] animate-fadeInUp">
-          Aesthetics <br />
+          The Ease <br />
           <span className="italic text-white/90 font-light">of Detail.</span>
         </h1>
 
         <p className="text-sm md:text-lg font-light mb-12 max-w-xl mx-auto tracking-wide leading-relaxed animate-fadeInUp delay-200 text-white/80">
-          디테일의 완성이 공간의 품격을 결정합니다.
+          머물수록 편안한 공간, 디테일로 완성합니다.
         </p>
 
         <div className="flex flex-col items-center gap-10 animate-fadeInUp delay-300 md:flex-row justify-center">
@@ -70,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
       </div>
 
       <div className="absolute bottom-12 left-10 hidden lg:flex flex-col gap-4 text-[9px] tracking-[0.4em] vertical-rl uppercase font-bold text-white/30">
-        STUDIO SOYEON — ARCHIVE
+        JEONG SOYEON — ARCHIVE
       </div>
     </section>
   );
