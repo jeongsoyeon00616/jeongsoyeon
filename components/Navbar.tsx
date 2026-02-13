@@ -33,30 +33,23 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 flex justify-between items-center whitespace-nowrap">
           {/* LEFT: LOGO */}
           <div className="flex-1">
-            <a href="#" className={`text-xl md:text-2xl font-serif tracking-tighter transition-colors duration-500 ${isScrolled ? 'text-[#1a1a1a]' : 'text-white'
+            <a href="#" className={`text-xl md:text-2xl font-sans font-black tracking-[0.1em] transition-colors duration-500 uppercase ${isScrolled ? 'text-[#1a1a1a]' : 'text-white'
               }`}>
-              STUDIO<span className="text-gold">.</span>SOYEON
+              JEONGSOYEON
             </a>
           </div>
 
           {/* CENTER: NAV LINKS */}
-          <div className={`hidden xl:flex flex-1 justify-center items-center gap-10 text-[10px] font-bold uppercase tracking-[0.3em] ${isScrolled ? 'text-gray-500' : 'text-white/80'
+          <div className={`hidden xl:flex flex-2 justify-center items-center gap-12 text-sm font-bold tracking-widest ${isScrolled ? 'text-gray-500' : 'text-white/90'
             }`}>
             {navLinks.map((link) => (
               <a key={link.name} href={link.href} className="hover:text-gold transition-colors">{link.name}</a>
             ))}
-            <button onClick={onOpenDesignLens} className="hover:text-gold transition-colors uppercase">DesignLens AI</button>
+            <button onClick={onOpenDesignLens} className="hover:text-gold transition-colors">DesignLens AI</button>
           </div>
 
-          {/* RIGHT: CTA */}
-          <div className="flex-1 flex justify-end items-center gap-4 md:gap-8">
-            <button className={`hidden sm:block text-[10px] uppercase font-bold tracking-[0.2em] px-5 py-2.5 border transition-all duration-500 rounded-none ${isScrolled
-              ? 'border-charcoal text-[#1a1a1a] hover:bg-gold hover:border-gold hover:text-white'
-              : 'border-white text-white hover:bg-gold hover:border-gold'
-              }`}>
-              INQUIRY
-            </button>
-
+          {/* RIGHT: MOBILE MENU TOGGLE */}
+          <div className="flex-1 flex justify-end items-center gap-4">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`p-2 transition-colors duration-500 ${isScrolled ? 'text-[#1a1a1a]' : 'text-white'}`}
@@ -77,14 +70,14 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-10 bg-white text-charcoal"
+            className="fixed inset-0 z-[60] flex flex-col items-center justify-center gap-12 bg-white text-charcoal"
           >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-3xl font-serif hover:text-gold"
+                className="text-2xl font-sans font-bold tracking-widest hover:text-gold transition-colors"
               >
                 {link.name}
               </a>
@@ -94,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
                 setIsMobileMenuOpen(false);
                 onOpenDesignLens();
               }}
-              className="text-3xl font-serif text-gold"
+              className="text-2xl font-sans font-bold tracking-widest text-gold hover:opacity-80 transition-opacity"
             >
               DesignLens AI
             </button>

@@ -1,4 +1,5 @@
 @echo off
+cd /d %~dp0
 echo ==========================================
 echo Starting High-End V2 Preview (CLEAN INSTALL)...
 echo This will fix the 'missing module' error.
