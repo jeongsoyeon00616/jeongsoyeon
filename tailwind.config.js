@@ -11,7 +11,7 @@ export default {
             colors: {
                 'off-white': '#fcfcfc',
                 'charcoal': '#1a1a1a',
-                'gold': '#C5A085', // Muted Bronze
+                'gold': '#B8860B', // Sharper Bronze/Gold
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],

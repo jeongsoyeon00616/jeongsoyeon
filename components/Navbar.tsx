@@ -24,6 +24,21 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
     { name: '문의하기', href: '#contact' },
   ];
 
+  const colors = {
+    scrolled: {
+      text: 'text-[#1a1a1a]', // 선명한 블랙
+      link: 'text-gray-600',
+      logo: 'text-[#1a1a1a]'
+    },
+    transparent: {
+      text: 'text-white',
+      link: 'text-white/90',
+      logo: 'text-white'
+    }
+  };
+
+  const currentTheme = isScrolled ? colors.scrolled : colors.transparent;
+
   return (
     <>
       <nav className={`fixed w-full z-50 transition-all duration-700 ${isScrolled
@@ -33,29 +48,36 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
         <div className="max-w-[100rem] mx-auto px-6 md:px-12 flex justify-between items-center whitespace-nowrap">
           {/* LEFT: LOGO */}
           <div className="flex-1">
-            <a href="#" className={`text-xl md:text-2xl font-serif tracking-tighter transition-colors duration-500 uppercase ${isScrolled ? 'text-[#1a1a1a]' : 'text-white'
-              }`}>
-              JEONG SOYEON
+            <a href="#" className={`text-xl md:text-2xl font-serif font-extralight tracking-[0.15em] transition-colors duration-500 uppercase ${currentTheme.logo}`}>
+              Jeong Soyeon
             </a>
           </div>
 
           {/* CENTER: NAV LINKS */}
-          <div className={`hidden xl:flex flex-2 justify-center items-center gap-12 text-sm font-bold tracking-widest ${isScrolled ? 'text-gray-500' : 'text-white/90'
-            }`}>
+          <div className={`hidden xl:flex flex-2 justify-center items-center gap-14 text-[11px] font-light tracking-[0.4em] ${currentTheme.link}`}>
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="hover:text-gold transition-colors">{link.name}</a>
+              <a key={link.name} href={link.href} className="hover:text-gold transition-colors duration-300">{link.name}</a>
             ))}
-            <button onClick={onOpenDesignLens} className="hover:text-gold transition-colors">DesignLens AI</button>
           </div>
 
-          {/* RIGHT: MOBILE MENU TOGGLE */}
-          <div className="flex-1 flex justify-end items-center gap-4">
+          {/* RIGHT: SPECIAL ACTION */}
+          <div className="flex-1 flex justify-end items-center gap-6">
+            <button
+              onClick={onOpenDesignLens}
+              className={`hidden md:block px-5 py-2 text-[10px] font-bold tracking-[0.2em] border transition-all duration-500 rounded-none uppercase
+                ${isScrolled
+                  ? 'border-gray-200 text-gray-500 hover:border-gold hover:text-gold'
+                  : 'border-white/30 text-white hover:border-white hover:bg-white/10'}`}
+            >
+              DesignLens AI
+            </button>
+
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 transition-colors duration-500 ${isScrolled ? 'text-[#1a1a1a]' : 'text-white'}`}
+              className={`p-2 transition-colors duration-500 ${currentTheme.text}`}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}></path>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}></path>
               </svg>
             </button>
           </div>
@@ -77,7 +99,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-2xl font-sans font-bold tracking-widest hover:text-gold transition-colors"
+                className="text-2xl font-serif font-light tracking-widest hover:text-gold transition-colors"
               >
                 {link.name}
               </a>
@@ -87,7 +109,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
                 setIsMobileMenuOpen(false);
                 onOpenDesignLens();
               }}
-              className="text-2xl font-sans font-bold tracking-widest text-gold hover:opacity-80 transition-opacity"
+              className="text-2xl font-serif font-bold tracking-widest text-gold hover:opacity-80 transition-opacity"
             >
               DesignLens AI
             </button>
