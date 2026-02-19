@@ -35,46 +35,47 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
             <img
               src={image}
               alt={`Interior ${index + 1}`}
-              className="w-full h-full object-cover brightness-[0.8] contrast-[1.05]"
+              className="w-full h-full object-cover brightness-[0.75] contrast-[1.05]"
             />
           </div>
         </div>
       ))}
 
       {/* SUBTLE DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/20 z-[1] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-black/25 z-[1] pointer-events-none"></div>
 
       {/* CONTENT AREA: CENTER ALIGNED */}
       <div className="relative z-10 px-6 transition-all duration-1000 max-w-5xl mx-auto">
-        <div className="overflow-hidden mb-8">
-          <span className="uppercase tracking-[0.6em] text-[10px] md:text-xs block animate-fadeInUp font-bold text-gold">
+        <div className="overflow-hidden mb-12">
+          <span className="uppercase tracking-[0.6em] text-[10px] md:text-xs block animate-fadeInUp font-bold text-gold opacity-90">
             Jeong Soyeon Portfolio
           </span>
         </div>
 
-        <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif text-white mb-10 leading-[1.1] animate-fadeInUp">
-          <span className="italic font-light">Where</span> Detail <br />
-          Becomes <span className="font-bold">Space.</span>
+        <h1 className="text-5xl md:text-8xl lg:text-[10rem] font-serif text-white mb-12 leading-[1.1] animate-fadeInUp italic font-light">
+          Where Detail <br />
+          Becomes Space.
         </h1>
 
-        <p className="text-sm md:text-lg font-light mb-14 max-w-xl mx-auto tracking-widest leading-relaxed animate-fadeInUp delay-200 text-white/90">
+        <p className="text-sm md:text-base font-light mb-14 max-w-xl mx-auto tracking-[0.2em] leading-relaxed animate-fadeInUp delay-200 text-white/80">
           오래도록 머물고 싶은 편안한 공간, <br />
           작은 디테일의 힘으로 완성합니다.
         </p>
-
-        <div className="flex justify-center animate-fadeInUp delay-300">
-          <button
-            onClick={onOpenDesignLens}
-            className="group flex items-center gap-5 text-[11px] uppercase tracking-[0.4em] font-bold text-gold hover:text-white transition-colors"
-          >
-            DesignLens AI
-            <span className="w-8 h-8 border border-gold/40 rounded-full flex items-center justify-center transition-all group-hover:bg-gold group-hover:border-gold group-hover:text-white group-hover:scale-110">→</span>
-          </button>
-        </div>
       </div>
 
-      {/* SIDE ARCHIVE TEXT */}
-      <div className="absolute bottom-12 right-10 hidden lg:flex flex-col gap-4 text-[9px] tracking-[0.4em] vertical-rl uppercase font-bold text-white/30">
+      {/* LEFT BOTTOM: DESIGNLENS AI (Matching Archive style) */}
+      <button
+        onClick={onOpenDesignLens}
+        className="absolute bottom-12 left-10 z-20 group flex items-center gap-3 text-[9px] tracking-[0.4em] uppercase font-bold text-white/40 hover:text-gold transition-colors animate-fadeInUp delay-300"
+      >
+        DesignLens AI
+        <span className="w-6 h-6 border border-white/20 rounded-full flex items-center justify-center transition-all group-hover:border-gold group-hover:bg-gold/10">
+          <span className="text-[10px] group-hover:translate-x-0.5 transition-transform">→</span>
+        </span>
+      </button>
+
+      {/* RIGHT BOTTOM: ARCHIVE TEXT */}
+      <div className="absolute bottom-12 right-10 z-10 hidden lg:flex flex-col gap-4 text-[9px] tracking-[0.4em] uppercase font-bold text-white/30 italic">
         JEONG SOYEON — ARCHIVE
       </div>
     </section>
