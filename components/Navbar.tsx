@@ -18,15 +18,15 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
   }, []);
 
   const navLinks = [
-    { name: '철학', href: '#about' },
-    { name: '포트폴리오', href: '#projects' },
-    { name: '프로세스', href: '#workflow' },
-    { name: '문의하기', href: '#contact' },
+    { name: 'Philosophy', href: '#about' },
+    { name: 'Portfolio', href: '#projects' },
+    { name: 'Process', href: '#workflow' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const colors = {
     scrolled: {
-      text: 'text-[#1a1a1a]', // 선명한 블랙
+      text: 'text-[#1a1a1a]',
       link: 'text-gray-600',
       logo: 'text-[#1a1a1a]'
     },
@@ -54,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
           </div>
 
           {/* CENTER: NAV LINKS */}
-          <div className={`hidden xl:flex flex-2 justify-center items-center gap-14 text-[11px] font-light tracking-[0.4em] ${currentTheme.link}`}>
+          <div className={`hidden xl:flex flex-2 justify-center items-center gap-14 text-[11px] font-light tracking-[0.4em] ${currentTheme.link} uppercase`}>
             {navLinks.map((link) => (
               <a key={link.name} href={link.href} className="hover:text-gold transition-colors duration-300">{link.name}</a>
             ))}
@@ -99,7 +99,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-2xl font-serif font-light tracking-widest hover:text-gold transition-colors"
+                className="text-2xl font-serif font-light tracking-widest hover:text-gold transition-colors uppercase"
               >
                 {link.name}
               </a>
@@ -109,7 +109,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
                 setIsMobileMenuOpen(false);
                 onOpenDesignLens();
               }}
-              className="text-2xl font-serif font-bold tracking-widest text-gold hover:opacity-80 transition-opacity"
+              className="text-2xl font-serif font-bold tracking-widest text-gold hover:opacity-80 transition-opacity uppercase"
             >
               DesignLens AI
             </button>
