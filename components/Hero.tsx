@@ -24,7 +24,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
   }, []);
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-charcoal text-center">
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-charcoal text-center px-6">
       {/* BACKGROUND IMAGES WITH OVERLAY */}
       {BACKGROUND_IMAGES.map((image, index) => (
         <div
@@ -45,19 +45,19 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
       <div className="absolute inset-0 bg-black/25 z-[1] pointer-events-none"></div>
 
       {/* CONTENT AREA: CENTER ALIGNED */}
-      <div className="relative z-10 px-6 transition-all duration-1000 max-w-5xl mx-auto">
+      <div className="relative z-10 transition-all duration-1000 max-w-4xl mx-auto">
         <div className="overflow-hidden mb-12">
           <span className="uppercase tracking-[0.6em] text-[10px] md:text-xs block animate-fadeInUp font-bold text-gold opacity-90">
             Jeong Soyeon Portfolio
           </span>
         </div>
 
-        <h1 className="text-5xl md:text-8xl lg:text-[10rem] font-serif text-white mb-12 leading-[1.1] animate-fadeInUp italic font-light">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-serif text-white mb-10 leading-[1.2] animate-fadeInUp italic font-light tracking-tight">
           Where Detail <br />
           Becomes Space.
         </h1>
 
-        <p className="text-sm md:text-base font-light mb-14 max-w-xl mx-auto tracking-[0.2em] leading-relaxed animate-fadeInUp delay-200 text-white/80">
+        <p className="text-xs md:text-sm lg:text-base font-light mb-14 max-w-lg mx-auto tracking-[0.25em] leading-relaxed animate-fadeInUp delay-200 text-white/70">
           오래도록 머물고 싶은 편안한 공간, <br />
           작은 디테일의 힘으로 완성합니다.
         </p>
@@ -66,7 +66,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
       {/* LEFT BOTTOM: DESIGNLENS AI (Matching Archive style) */}
       <button
         onClick={onOpenDesignLens}
-        className="absolute bottom-12 left-10 z-20 group flex items-center gap-3 text-[9px] tracking-[0.4em] uppercase font-bold text-white/40 hover:text-gold transition-colors animate-fadeInUp delay-300"
+        className="absolute bottom-12 left-6 md:left-10 z-20 group flex items-center gap-3 text-[9px] tracking-[0.4em] uppercase font-bold text-white/40 hover:text-gold transition-colors animate-fadeInUp delay-300"
       >
         DesignLens AI
         <span className="w-6 h-6 border border-white/20 rounded-full flex items-center justify-center transition-all group-hover:border-gold group-hover:bg-gold/10">
@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
       </button>
 
       {/* RIGHT BOTTOM: ARCHIVE TEXT */}
-      <div className="absolute bottom-12 right-10 z-10 hidden lg:flex flex-col gap-4 text-[9px] tracking-[0.4em] uppercase font-bold text-white/30 italic">
+      <div className="absolute bottom-12 right-6 md:right-10 z-10 hidden lg:flex flex-col gap-4 text-[9px] tracking-[0.4em] uppercase font-bold text-white/30 italic">
         JEONG SOYEON — ARCHIVE
       </div>
     </section>
