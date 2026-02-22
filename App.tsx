@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Gallery from './components/Gallery';
 import About from './components/About';
-import Workflow from './components/Workflow';
 import Contact from './components/Contact';
 import DesignLens from './components/DesignLens/DesignLens';
 import { AnimatePresence } from 'framer-motion';
@@ -22,7 +21,6 @@ const App: React.FC = () => {
         />
         <About />
         <Gallery />
-        <Workflow />
         <Contact />
       </main>
 

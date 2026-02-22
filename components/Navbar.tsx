@@ -20,7 +20,6 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
   const navLinks = [
     { name: 'Philosophy', href: '#about' },
     { name: 'Portfolio', href: '#projects' },
-    { name: 'Process', href: '#workflow' },
     { name: 'Contact', href: '#contact' },
   ];
 
