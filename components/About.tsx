@@ -58,12 +58,12 @@ const About: React.FC = () => {
                 />
               </div>
 
-              {/* RESTORED DECORATIVE STAMP (Est. 2025 • Portfolio) */}
+              {/* RESTORED DECORATIVE STAMP (Est. 2026 • Portfolio) */}
               <div className="absolute -bottom-10 -right-10 w-32 h-32 md:w-40 md:h-40 z-20">
                 <div className="relative w-full h-full flex items-center justify-center">
                   <div className="absolute inset-0 border border-gold/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
                   <div className="text-[8px] uppercase tracking-[0.3em] text-gold/60 font-medium">
-                    Est. 2025 • Portfolio
+                    Est. 2026 • Portfolio
                   </div>
                 </div>
               </div>
@@ -88,8 +88,7 @@ const About: React.FC = () => {
               <div className="space-y-6 text-[15px] text-gray-500 font-light leading-relaxed max-w-lg">
                 <p>
                   좋은 공간은 화려함이 아니라 <br />
-                  가구 디자이너로 일하며 다져온 정교한 기준과 <br />
-                  마감의 완성도에서 비롯됩니다.
+                  정교한 기준과 마감의 완성도에서 비롯됩니다.
                 </p>
                 <p>
                   시선이 머무는 각도, <br />
