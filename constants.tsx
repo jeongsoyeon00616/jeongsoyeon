@@ -4,79 +4,106 @@ import { Project, Skill, Education, Certification } from './types';
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: '판교 푸르지오 그랑블',
+    title: '개포우성',
     category: 'Residential',
-    imageUrl: '/assets/projects/pangyo_main.jpg',
+    imageUrl: '/projects-data/1. 개포우성/1.jpg',
     galleryUrls: [
-      '/assets/projects/pangyo_main.jpg',
-      '/assets/projects/pangyo_sub1.jpg',
-      '/assets/projects/pangyo_sub2.jpg',
-      '/assets/projects/pangyo_sub3.jpg'
+      '/projects-data/1. 개포우성/1.jpg',
+      '/projects-data/1. 개포우성/2.jpg',
+      '/projects-data/1. 개포우성/3.jpg',
+      '/projects-data/1. 개포우성/4.jpg',
+      '/projects-data/1. 개포우성/5.jpg'
     ],
-    description: '공간의 비례와 빛의 질감을 극대화한 하이엔드 주거 프로젝트.',
-    longDescription: '단순한 주거를 넘어 삶의 가치를 담는 그릇으로서의 공간을 기획했습니다. Graybooth와의 협업으로 완성된 결과물은 무몰딩 패널 시공과 히든 도어, 그리고 정교한 조명 제어 시스템을 통해 시각적 노이즈를 제거하고 순수한 공간감을 제공합니다.',
-    features: ['전문 사진 작가(Graybooth) 촬영 프로젝트', '전 구역 무몰딩 및 히든 도어 시공', '커스텀 아일랜드 및 주방 레이아웃 재설계', '스마트 홈 루틴 조명 시나리오 적용'],
+    description: '개포우성 주거 공간의 정교한 리모델링 프로젝트.',
+    longDescription: '가구 설계의 정교함을 바탕으로 공간의 선과 면을 다듬은 프로젝트입니다. 사용자의 생활 패턴을 분석하여 최적화된 하이엔드 주거 환경을 구현했습니다.',
+    features: ['맞춤형 가구 설계', '공간 레이아웃 최적화', '프리미엄 마감재 선정'],
     specs: {
-      location: '경기도 성남시 분당구 판교',
-      area: '52평형',
-      period: '2024.12 - 2025.01'
+      location: '서울시 강남구 개포동',
+      area: '평형 정보 확인 필요',
+      period: '작업 기간 확인 필요'
     }
   },
   {
     id: '2',
-    title: '도곡렉슬 304동',
+    title: '용산파크타워',
     category: 'Residential',
-    imageUrl: '/assets/projects/dogok_main.jpg',
+    imageUrl: '/projects-data/2. 용산파크타워/1.JPG',
     galleryUrls: [
-      '/assets/projects/dogok_main.jpg',
-      '/assets/projects/dogok_sub1.jpg',
-      '/assets/projects/dogok_sub2.jpg'
+      '/projects-data/2. 용산파크타워/1.JPG',
+      '/projects-data/2. 용산파크타워/2.JPG',
+      '/projects-data/2. 용산파크타워/3.jpg',
+      '/projects-data/2. 용산파크타워/4.jpg',
+      '/projects-data/2. 용산파크타워/5.jpg',
+      '/projects-data/2. 용산파크타워/6.jpg',
+      '/projects-data/2. 용산파크타워/7.jpg'
     ],
-    description: '따뜻한 천연 목재와 직선적 미학이 조화를 이룬 도곡동 주거 공간.',
-    longDescription: '가족의 아늑한 휴식을 위한 웜 톤의 인테리어를 기반으로 합니다. 170여 장의 촬영 기록이 증명하듯, 현장의 모든 디테일을 직접 감리하며 천연 원목 마루와 벽체의 연결성을 확보했습니다. 특히 슬라이딩 붙박이장과 제우스 레일을 활용한 정밀 수납 설계가 돋보이는 현장입니다.',
-    features: ['천연 원목 질감을 살린 벽체 인테리어', '제우스 레일 기반의 슬라이딩 시스템', '전실 및 복도 동선 최적화 수납 설계', '조도 시뮬레이션을 통한 간접 조명 계획'],
+    description: '용산 파크타워의 모던하고 담백한 인테리어 디자인.',
+    longDescription: '도심 속 휴식을 위한 담백하고 깊이 있는 공간을 지향했습니다. 소재 본연의 질감을 살려 시간이 흐를수록 가치가 느껴지는 공간을 완성했습니다.',
+    features: ['모던 미니멀리즘 디자인', '조명 조도 계획', '수납 시스템 고도화'],
     specs: {
-      location: '서울 특별시 강남구 도곡동',
-      area: '43평형',
-      period: '2025.07 - 2025.08'
+      location: '서울시 용산구',
+      area: '평형 정보 확인 필요',
+      period: '작업 기간 확인 필요'
     }
   },
   {
     id: '3',
-    title: '압구정 현대 75동',
+    title: '당산반도유보라',
     category: 'Residential',
-    imageUrl: '/assets/projects/apgujeong_main_v2.jpg',
+    imageUrl: '/projects-data/3. 당산반도유보라/1.jpg',
     galleryUrls: [
-      '/assets/projects/apgujeong_main_v2.jpg',
-      '/assets/projects/apgujeong_sub1.jpg',
-      '/assets/projects/apgujeong_sub2.jpg'
+      '/projects-data/3. 당산반도유보라/1.jpg',
+      '/projects-data/3. 당산반도유보라/2.jpg',
+      '/projects-data/3. 당산반도유보라/3.jpg'
     ],
-    description: '오랜 역사의 주거지에 현대적 숨결을 불어넣은 정교한 리모델링.',
-    longDescription: '전폭적인 레이아웃 변경과 구조 보강이 수반된 고난도의 리노베이션 프로젝트입니다. 하이엔드 자재의 믹스앤매치를 통해 클래식 아파트의 단점을 보완하고, 디자이너 소연의 감각을 더해 개방감 있는 럭셔리 주거 공간으로 재탄생시켰습니다.',
-    features: ['내력벽 한계를 극복한 오픈 레이아웃', '프리미엄 스톤 및 수입 자재 큐레이션', '스케치업 기반의 정밀 가구 모델링', '현장 밀착 감리를 통한 시공 품질 확보'],
+    description: '당산 반도유보라의 삶을 담는 그릇으로서의 정제된 공간.',
+    longDescription: '불필요한 장식을 배제하고 공간의 본질에 집중했습니다. 따뜻한 톤앤매너를 유지하며 사용자의 습관이 자연스럽게 스며드는 서사를 담았습니다.',
+    features: ['톤앤매너 큐레이션', '슬라이딩 도어 시스템', '주방 공간 재구성'],
     specs: {
-      location: '서울 특별시 강남구 압구정동',
-      area: '52평형',
-      period: '2025.06 - 2025.07'
+      location: '서울시 영등포구 당산동',
+      area: '평형 정보 확인 필요',
+      period: '작업 기간 확인 필요'
     }
   },
   {
     id: '4',
-    title: '개포우성 1차',
+    title: '도곡렉슬',
     category: 'Residential',
-    imageUrl: '/assets/projects/gaepo_main.jpg',
+    imageUrl: '/projects-data/4. 도곡렉슬/1.jpg',
     galleryUrls: [
-      '/assets/projects/gaepo_main.jpg',
-      '/assets/projects/gaepo_sub1.jpg',
-      '/assets/projects/gaepo_sub2.jpg'
+      '/projects-data/4. 도곡렉슬/1.jpg',
+      '/projects-data/4. 도곡렉슬/2.jpg',
+      '/projects-data/4. 도곡렉슬/3.jpg',
+      '/projects-data/4. 도곡렉슬/4.jpg',
+      '/projects-data/4. 도곡렉슬/5.jpg'
     ],
-    description: '디자이너의 정교한 시선으로 큐레이팅된 품격 있는 주거 스타일링.',
-    longDescription: '사용자의 라이프스타일에 맞춘 가구 배치와 집기 큐레이션이 돋보이는 현장입니다. 시공 단계별 사진 기록(1~4일차 및 최종)이 증명하듯, 철저한 현장 관리 하에 완성되었으며, 톤온톤 매치를 통해 시각적 안정감을 구현했습니다.',
-    features: ['라이프스타일 맞춤형 공간 브랜딩', '컬러 및 텍스처 큐레이션 서비스', '친환경 고급 도장 및 마감재 매칭', '단계별 시공 기록을 통한 투명한 품질 관리'],
+    description: '도곡렉슬의 정밀한 선의 조화가 돋보이는 공간 설계.',
+    longDescription: '벽과 가구가 만나는 예리한 선의 조화를 통해 마감의 밀도를 높였습니다. 1mm의 오차를 허용하지 않는 정교함이 돋보이는 현장입니다.',
+    features: ['정밀 시공 감리', '가구 매스 관리', '벽면 패널라이징'],
     specs: {
-      location: '서울 특별시 강남구 대치동',
-      area: '45평형',
-      period: '2025.04 - 2025.05'
+      location: '서울시 강남구 도곡동',
+      area: '평형 정보 확인 필요',
+      period: '작업 기간 확인 필요'
+    }
+  },
+  {
+    id: '5',
+    title: '창전삼성래미안',
+    category: 'Residential',
+    imageUrl: '/projects-data/5. 창전삼성래미안/1.jpg',
+    galleryUrls: [
+      '/projects-data/5. 창전삼성래미안/1.jpg',
+      '/projects-data/5. 창전삼성래미안/2.jpg',
+      '/projects-data/5. 창전삼성래미안/3.jpg',
+      '/projects-data/5. 창전삼성래미안/4.jpg'
+    ],
+    description: '창전 삼성래미안의 본질에 집중한 인테리어 디자인.',
+    longDescription: '매일 머물고 싶은 편안함을 목표로 했습니다. 소재가 가진 고유의 울림을 전달하며, 유행에 흔들리지 않는 견고한 담백함을 구현했습니다.',
+    features: ['소재 본성 강조', '욕실/주방 리모델링', '전체 조명 계획'],
+    specs: {
+      location: '서울시 마포구 창전동',
+      area: '평형 정보 확인 필요',
+      period: '작업 기간 확인 필요'
     }
   }
 ];
@@ -89,7 +116,7 @@ export const SKILLS: Skill[] = [
 ];
 
 export const EDUCATIONS: Education[] = [
-  { degree: '실내건축디자인 과정 수료', school: '노원 그린컴퓨터 아카데미', period: '2024.03 - 2024.08' },
+  { degree: '실내건축디자인 과정 수료', school: '노원 그린 아카데미', period: '2024.03 - 2024.08' },
   { degree: '산업디자인과 졸업 (편입)', school: '한양사이버대학교', period: '2021.02 - 2024.02' },
   { degree: '금형디자인과 졸업', school: '경기과학기술대학교', period: '2019.03 - 2021.02' },
 ];
