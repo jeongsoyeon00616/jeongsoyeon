@@ -17,26 +17,29 @@ export default defineConfig(({ mode }) => {
           desktopPath
         ]
       },
-      // We use a middleware to serve files from the desktop folder
-      // without copying them.
+      // Middleware to serve files from the desktop folder
       configureServer(server) {
-        server.middlewares.use('/projects-data', (req, res, next) => {
-          const url = decodeURIComponent(req.url || '');
-          const filePath = path.join(desktopPath, url);
+        server.middlewares.use((req, res, next) => {
+          if (req.url && req.url.startsWith('/projects-data/')) {
+            // Extract the path after /projects-data/
+            const relativePath = req.url.slice('/projects-data/'.length);
+            const decodedPath = decodeURIComponent(relativePath);
+            const filePath = path.join(desktopPath, decodedPath);
 
-          if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
-            res.setHeader('Content-Type', getContentType(filePath));
-            res.end(fs.readFileSync(filePath));
-          } else {
-            next();
+            if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+              res.setHeader('Content-Type', getContentType(filePath));
+              res.setHeader('Cache-Control', 'max-age=3600');
+              res.end(fs.readFileSync(filePath));
+              return;
+            }
           }
+          next();
         });
       }
     },
     plugins: [react()],
     define: {
-      'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+      'process.env.VITE_GEMINI_API_KEY': JSON.stringify(env.VITE_GEMINI_API_KEY || env.GEMINI_API_KEY),
     },
     resolve: {
       alias: {
