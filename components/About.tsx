@@ -6,21 +6,21 @@ const About: React.FC = () => {
   const CORE_VALUES = [
     {
       icon: <Ruler className="w-5 h-5" strokeWidth={1.5} />,
-      title: 'Precision',
+      title: 'PRECISION',
       subtitle: '정교함',
-      desc: '가구 설계에서 다져진 타협 없는 시공의 기준'
+      desc: '작은 오차도 허용하지 않는 기준.'
     },
     {
       icon: <Layers className="w-5 h-5" strokeWidth={1.5} />,
-      title: 'Material',
+      title: 'MATERIAL',
       subtitle: '본성',
-      desc: '재료가 가진 고유의 질감이 전하는 울림'
+      desc: '과하지 않은 재질의 균형.'
     },
     {
       icon: <BookOpen className="w-5 h-5" strokeWidth={1.5} />,
-      title: 'Narrative',
+      title: 'NARRATIVE',
       subtitle: '서사',
-      desc: '사용자의 삶과 습관이 자연스럽게 스며드는 공간'
+      desc: '대화에서 시작되는 맞춤 설계.'
     }
   ];
 
@@ -38,7 +38,7 @@ const About: React.FC = () => {
       <div className="relative z-10 mx-auto px-10 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
 
-          {/* LEFT: PHOTO & STAMP (Moved to left for new composition) */}
+          {/* LEFT: PHOTO & STAMP */}
           <div className="lg:col-span-6 relative">
             <motion.div
               className="relative group w-full aspect-[3/4] max-w-md mx-auto"
@@ -57,12 +57,13 @@ const About: React.FC = () => {
                   className="w-full h-full object-cover mix-blend-multiply opacity-90 transition-transform duration-[3s] group-hover:scale-105"
                 />
               </div>
-              <div className="absolute -bottom-8 -right-8 w-28 h-28 md:w-32 md:h-32 z-20">
+
+              {/* RESTORED DECORATIVE STAMP (Est. 2025 • Portfolio) */}
+              <div className="absolute -bottom-10 -right-10 w-32 h-32 md:w-40 md:h-40 z-20">
                 <div className="relative w-full h-full flex items-center justify-center">
-                  <div className="absolute inset-0 border border-gold/40 rounded-full animate-[spin_12s_linear_infinite]"></div>
-                  <div className="bg-[#FAF9F6]/80 backdrop-blur-sm border border-gold/20 rounded-full w-[85%] h-[85%] flex flex-col items-center justify-center text-center">
-                    <span className="text-[9px] text-gold font-bold tracking-[0.2em] uppercase">Authentic</span>
-                    <div className="mt-1 w-4 h-[1px] bg-gold opacity-30"></div>
+                  <div className="absolute inset-0 border border-gold/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                  <div className="text-[8px] uppercase tracking-[0.3em] text-gold/60 font-medium">
+                    Est. 2025 • Portfolio
                   </div>
                 </div>
               </div>
@@ -86,21 +87,23 @@ const About: React.FC = () => {
               </h3>
               <div className="space-y-6 text-[15px] text-gray-500 font-light leading-relaxed max-w-lg">
                 <p>
-                  가구 디테일러로서 1mm의 오차를 허용하지 않던 정교함은 제가 공간을 대하는 가장 강력한 기준이 되었습니다.
-                  좋은 공간은 화려한 미사여구가 아니라, 눈에 띄지 않는 곳까지 세밀하게 설계된 마감의 밀도에서 탄생합니다.
+                  좋은 공간은 화려함이 아니라 <br />
+                  가구 디자이너로 일하며 다져온 정교한 기준과 <br />
+                  마감의 완성도에서 비롯됩니다.
                 </p>
                 <p>
-                  사용자의 시선이 머무는 각도, 손끝에 전해지는 자재의 물성, 그리고 벽과 가구가 만나는 예리한 선의 조화.
-                  저는 이 작은 조각들이 모여 비로소 '삶을 담는 그릇'으로서의 온전한 편안함을 완성한다고 믿습니다.
+                  시선이 머무는 각도, <br />
+                  손끝에 닿는 질감, <br />
+                  벽과 가구가 만나는 선.
                 </p>
                 <p>
-                  단순히 보기 좋은 디자인을 넘어, 시간이 흐를수록 사용자의 습관이 배어들고 깊이가 깊어지는 정제된 공간.
-                  유행에 흔들리지 않는 견고한 담백함을 공간에 투영합니다.
+                  사소해 보이지만 결정적인 차이들이 모여 <br />
+                  시간이 흐를수록 깊어지는 공간을 만듭니다.
                 </p>
               </div>
             </motion.div>
 
-            {/* CORE VALUES (New Integrated Section) */}
+            {/* CORE VALUES (Updated Contents) */}
             <div className="grid grid-cols-1 gap-8 pt-12 border-t border-gray-200/50">
               {CORE_VALUES.map((val, i) => (
                 <div key={i} className="flex gap-6 items-start">
@@ -117,7 +120,7 @@ const About: React.FC = () => {
               ))}
             </div>
 
-            {/* EXPERIENCE & EDUCATION */}
+            {/* EXPERIENCE & EDUCATION (Updated Contents) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gray-200/50">
               <div className="space-y-6">
                 <h4 className="text-[9px] font-bold uppercase tracking-widest text-gray-400">Experience</h4>
@@ -132,16 +135,16 @@ const About: React.FC = () => {
                 <h4 className="text-[9px] font-bold uppercase tracking-widest text-gray-400">Education</h4>
                 <ul className="space-y-4 text-[11px] text-gray-600 font-light leading-relaxed uppercase tracking-tighter">
                   <li>
-                    <span className="block font-bold text-gray-900 text-[10px]">2024. 02</span>
-                    한양사이버대학교 — 산업디자인과 졸업
+                    <span className="block font-bold text-gray-900 text-[10px]">2024. 03 — 2024. 08</span>
+                    노원 그린 아카데미 — 실내건축디자인 수료
                   </li>
                   <li>
-                    <span className="block font-bold text-gray-900 text-[10px]">2022. 02</span>
+                    <span className="block font-bold text-gray-900 text-[10px]">2021. 02 — 2024. 02</span>
+                    한양사이버대학교 — 산업디자인과 편입/졸업
+                  </li>
+                  <li>
+                    <span className="block font-bold text-gray-900 text-[10px]">2019. 03 — 2021. 02</span>
                     경기과학기술대학교 — 금형디자인과 졸업
-                  </li>
-                  <li>
-                    <span className="block font-bold text-gray-900 text-[10px]">2024. 03 — 09</span>
-                    그린컴퓨터 아카데미 실내건축디자인 수료
                   </li>
                 </ul>
               </div>
