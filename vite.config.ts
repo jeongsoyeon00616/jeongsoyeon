@@ -16,30 +16,46 @@ export default defineConfig(({ mode }) => {
           '.',
           desktopPath
         ]
-      },
-      // Middleware to serve files from the desktop folder
-      configureServer(server) {
-        server.middlewares.use((req, res, next) => {
-          if (req.url && req.url.startsWith('/projects-data/')) {
-            // Extract the path after /projects-data/
-            const relativePath = req.url.slice('/projects-data/'.length);
-            const decodedPath = decodeURIComponent(relativePath);
-            const filePath = path.join(desktopPath, decodedPath);
-
-            if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
-              res.setHeader('Content-Type', getContentType(filePath));
-              res.setHeader('Cache-Control', 'max-age=3600');
-              res.end(fs.readFileSync(filePath));
-              return;
-            }
-          }
-          next();
-        });
       }
     },
-    plugins: [react()],
+    plugins: [
+      react(),
+      {
+        name: 'serve-desktop-images',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            const url = req.url || '';
+            if (url.includes('/projects-data/')) {
+              const decodedUrl = decodeURIComponent(url);
+              const marker = '/projects-data/';
+              const index = decodedUrl.indexOf(marker);
+              if (index !== -1) {
+                const relativePath = decodedUrl.substring(index + marker.length).split('?')[0];
+                const filePath = path.join(desktopPath, relativePath).replace(/\\/g, '/');
+
+                if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+                  const ext = path.extname(filePath).toLowerCase();
+                  const mimes: Record<string, string> = {
+                    '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.JPG': 'image/jpeg',
+                    '.png': 'image/png', '.gif': 'image/gif', '.webp': 'image/webp'
+                  };
+                  res.writeHead(200, {
+                    'Content-Type': mimes[ext] || 'image/jpeg',
+                    'Access-Control-Allow-Origin': '*',
+                    'Cache-Control': 'public, max-age=86400'
+                  });
+                  res.end(fs.readFileSync(filePath));
+                  return;
+                }
+              }
+            }
+            next();
+          });
+        }
+      }
+    ],
     define: {
-      'process.env.VITE_GEMINI_API_KEY': JSON.stringify(env.VITE_GEMINI_API_KEY || env.GEMINI_API_KEY),
+      'import.meta.env.VITE_GEMINI_API_KEY': JSON.stringify(env.VITE_GEMINI_API_KEY || env.GEMINI_API_KEY || ""),
     },
     resolve: {
       alias: {
@@ -48,15 +64,3 @@ export default defineConfig(({ mode }) => {
     }
   };
 });
-
-function getContentType(filePath: string) {
-  const ext = path.extname(filePath).toLowerCase();
-  switch (ext) {
-    case '.jpg':
-    case '.jpeg': return 'image/jpeg';
-    case '.png': return 'image/png';
-    case '.gif': return 'image/gif';
-    case '.svg': return 'image/svg+xml';
-    default: return 'application/octet-stream';
-  }
-}
