@@ -5,7 +5,7 @@ export const PROJECTS: Project[] = [
   {
     id: '1',
     title: '판교 푸르지오 그랑블',
-    category: '하이엔드 미니멀리즘 (High-end Residential)',
+    category: 'Residential',
     imageUrl: '/assets/projects/pangyo_main.jpg',
     galleryUrls: [
       '/assets/projects/pangyo_main.jpg',
@@ -25,7 +25,7 @@ export const PROJECTS: Project[] = [
   {
     id: '2',
     title: '도곡렉슬 304동',
-    category: '우드 & 미니멀 레지던스 (Premium Residence)',
+    category: 'Residential',
     imageUrl: '/assets/projects/dogok_main.jpg',
     galleryUrls: [
       '/assets/projects/dogok_main.jpg',
@@ -44,7 +44,7 @@ export const PROJECTS: Project[] = [
   {
     id: '3',
     title: '압구정 현대 75동',
-    category: '모던 클래식 리노베이션 (Renovation)',
+    category: 'Residential',
     imageUrl: '/assets/projects/apgujeong_main_v2.jpg',
     galleryUrls: [
       '/assets/projects/apgujeong_main_v2.jpg',
@@ -63,7 +63,7 @@ export const PROJECTS: Project[] = [
   {
     id: '4',
     title: '개포우성 1차',
-    category: '공간 브랜딩 & 스타일링 (Space Curation)',
+    category: 'Residential',
     imageUrl: '/assets/projects/gaepo_main.jpg',
     galleryUrls: [
       '/assets/projects/gaepo_main.jpg',
@@ -78,20 +78,6 @@ export const PROJECTS: Project[] = [
       area: '45평형',
       period: '2025.04 - 2025.05'
     }
-  },
-  {
-    id: '5',
-    title: '타워팰리스 G동 (Design Stage)',
-    category: '하이엔드 기술 설계 (Technical Planning)',
-    imageUrl: '/assets/projects/tower_main.png',
-    description: '2026년 현재 진행 중인 타워팰리스 55B 타입의 정교한 설계 아카이브.',
-    longDescription: '단순한 공사를 넘어 기술적 설계의 정점을 보여주는 현재 진행형 자료입니다. 미크래빗 전송용 SKP 모델링과 공사 일정표, 실측 자료를 바탕으로 최상의 결과물을 도출하기 위한 빌드업 과정에 있으며, 기획 단계의 철저함을 보여줍니다.',
-    features: ['55B 타입 전체 레이아웃 재구성', '미크래빗 협업 정밀 3D 모델링', '복합 설비 및 특수 금속 발주 관리', '데이터 기반의 효율적 공정 스케줄링'],
-    specs: {
-      location: '서울 특별시 강남구 도곡동',
-      area: '55평형',
-      period: '2025.10 - 2026.02 (진행중)'
-    }
   }
 ];
 
@@ -103,12 +89,11 @@ export const SKILLS: Skill[] = [
 ];
 
 export const EDUCATIONS: Education[] = [
-  { degree: '실내건축학 석사', school: '홍익대학교 대학원', period: '2019 - 2021' },
-  { degree: '실내환경디자인 학사', school: '서울대학교', period: '2015 - 2019' },
+  { degree: '실내건축디자인 과정 수료', school: '노원 그린컴퓨터 아카데미', period: '2024.03 - 2024.08' },
+  { degree: '산업디자인과 졸업 (편입)', school: '한양사이버대학교', period: '2021.02 - 2024.02' },
+  { degree: '금형디자인과 졸업', school: '경기과학기술대학교', period: '2019.03 - 2021.02' },
 ];
 
 export const CERTIFICATIONS: Certification[] = [
-  { name: '실내건축기사 (국가기술자격)', date: '2019' },
-  { name: 'PMP (프로젝트 관리 전문가)', date: '2022' },
-  { name: 'LEED AP ID+C', date: '2021' },
+  { name: '실내건축기사 (국가기술자격)', date: '2024' },
 ];
