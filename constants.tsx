@@ -6,7 +6,7 @@ export const PROJECTS: Project[] = [
     id: '1',
     title: '개포우성',
     category: 'Residential',
-    imageUrl: '/assets/projects/1. 개포우성/3.jpg',
+    imageUrl: '/assets/projects/1. 개포우성/1.jpg',
     galleryUrls: [
       '/assets/projects/1. 개포우성/1.jpg',
       '/assets/projects/1. 개포우성/2.jpg',
