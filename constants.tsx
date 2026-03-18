@@ -15,12 +15,12 @@ export const PROJECTS: Project[] = [
       '/assets/projects/pangyo/13.jpg', '/assets/projects/pangyo/14.jpg', '/assets/projects/pangyo/15.jpg',
       '/assets/projects/pangyo/16.jpg', '/assets/projects/pangyo/17.jpg'
     ],
-    description: '판교 푸르지오 그랑블의 정제된 아름다움을 담은 공간 디자인.',
-    longDescription: '시공을 초월하는 아늑함과 실용성을 겸비한 럭셔리 라이프스타일을 담아냈습니다. 하이엔드 가구와 공간의 조화를 통해 품격 있는 주거 환경을 제안하며, 소재의 프리미엄함과 설계의 정밀함을 동시에 추구했습니다.',
-    features: ['프리미엄 가구 설계', '공간 미학 최적화', '디테일 지향 마감재 선정'],
+    description: '베이지와 우드의 따뜻한 조화가 돋보이는 3인 가족의 보금자리입니다.',
+    longDescription: '은은한 베이지톤 베이스에 우드로 포인트를 주어 아늑함을 강조한 현장입니다. 집의 중심인 주방은 필름 대신 천연 무늬목을 사용하여 은은한 햇빛이 스며들 때 그 질감이 온전히 빛을 발하도록 설계했습니다. 커피를 즐기시는 고객님의 라이프스타일을 반영해 동선 방해 없이 여닫을 수 있는 포켓도어 홈바를 제작했으며, 내부는 헤어라인 PET 마감과 하단 조명 매립 버튼으로 세련된 디테일을 더했습니다. 시선이 방해되지 않도록 천장 매립형 후드를 시공했고, 각 방(안방 서랍장, 따님방 우드찬넬, 아버님 서재 피규어 장식장)에도 맞춤형 가구 설계를 적용해 실용성과 디자인을 모두 충족시켰습니다.',
+    features: ['천연 무늬목 주방 설계', '포켓도어 맞춤형 홈바', '가족 구성원 맞춤 가구 제작'],
     specs: {
       location: '성남시 분당구 백현동 판교푸르지오그랑블',
-      area: '주거공간',
+      area: '37py',
       period: '2025. 01'
     }
   },
@@ -37,12 +37,12 @@ export const PROJECTS: Project[] = [
       '/assets/projects/gaepo/13.JPG', '/assets/projects/gaepo/14.JPG', '/assets/projects/gaepo/15.jpg',
       '/assets/projects/gaepo/16.jpg', '/assets/projects/gaepo/17.jpg', '/assets/projects/gaepo/18.jpg'
     ],
-    description: '개포우성 주거 공간의 정교한 리모델링 프로젝트.',
-    longDescription: '가구 설계의 정교함을 바탕으로 기존의 한계를 넘어 공간의 선과 면을 새롭게 다듬은 프로젝트입니다. 사용자의 섬세한 생활 패턴을 분석하여 최적화된 하이엔드 주거 환경을 구현했습니다.',
-    features: ['맞춤형 가구 설계', '공간 레이아웃 최적화', '프리미엄 마감재 선정'],
+    description: '시원하게 뻗은 동선과 섬세한 마감 디테일이 돋보이는 프로젝트.',
+    longDescription: '처음으로 메인 디자인을 담당하게 되어 더욱 의미 있는 현장입니다. 답답함 없이 넓고 시원하게 보이도록 공간을 확장하고, \'주방-다이닝-거실\'로 이어지는 동선을 길고 쾌적하게 설계했습니다. 공간의 큰 흐름 속에서도 다이닝장, 거실 장식장, 드레스룸 오픈장 등 곳곳에 세세한 가구 디테일을 더해 완성도를 한층 끌어올렸으며, 푸른색을 좋아하시는 고객님의 취향을 반영하여 거실과 안방 욕실에 감각적인 블루 포인트를 곁들였습니다.',
+    features: ['광폭 레이아웃 기획', '가구 디테일 고도화', '클라이언트 맞춤 컬러 큐레이션'],
     specs: {
       location: '서울시 강남구 대치동 개포우성 1차',
-      area: '주거공간',
+      area: '65py',
       period: '2025. 04'
     }
   },
@@ -52,18 +52,18 @@ export const PROJECTS: Project[] = [
     category: 'Residential',
     imageUrl: '/assets/projects/yongsan/썸네일.jpg',
     galleryUrls: [
-      '/assets/projects/yongsan/1.jpg', '/assets/projects/yongsan/2.jpg', '/assets/projects/yongsan/3.jpg',
+      '/assets/projects/yongsan/1.jpg', '/assets/projects/yongsan/2.JPG', '/assets/projects/yongsan/3.JPG',
       '/assets/projects/yongsan/4.jpg', '/assets/projects/yongsan/5.jpg', '/assets/projects/yongsan/6.jpg',
       '/assets/projects/yongsan/7.jpg', '/assets/projects/yongsan/8.jpg', '/assets/projects/yongsan/9.jpg',
       '/assets/projects/yongsan/10.jpg', '/assets/projects/yongsan/11.jpg', '/assets/projects/yongsan/12.jpg',
       '/assets/projects/yongsan/13.jpg'
     ],
-    description: '용산 파크타워의 모던하고 담백한 인테리어 디자인.',
-    longDescription: '도심 속 진정한 휴식을 위한 담백하고 깊이 있는 공간을 지향했습니다. 소재 본연의 묵직한 질감을 살려 시간이 흐를수록 더욱 큰 가치가 느껴지는 타임리스 갤러리 같은 공간을 완성했습니다.',
-    features: ['모던 미니멀리즘 디자인', '입체적인 조명 조도 계획', '수납 시스템 고도화'],
+    description: '확고한 취향을 담은 강렬한 빅슬랩과 무늬목의 조화.',
+    longDescription: '고객님의 확고한 취향 덕분에 디자인 과정이 무척 흥미로웠던 현장입니다. 공간의 메인이 된 주방의 강렬한 빅슬랩 타일을 기준으로 전체 자재의 색감과 밸런스를 조율했습니다. 훌륭한 뷰를 감상할 수 있도록 창가에 무늬목 홈바 테이블과 직접 디자인한 와인잔 거치대를 배치하였으며, 거실로 이어지는 라인에는 띄움장과 긴 선반을 적용하여 확장된 공간감을 부여했습니다. 안방에는 특수 하드웨어를 활용해 위로 열리는 화장대를 특별히 제작하고, 흔한 원형이 아닌 각진 형태의 유니크한 옷걸이봉까지 직접 커스텀하여 어디에도 없는 디테일을 완성했습니다.',
+    features: ['빅슬랩 중심의 자재 큐레이션', '무늬목 커스텀 가구 설계', '특수 하드웨어 적용 맞춤 가구'],
     specs: {
       location: '서울시 용산구 용산동5가 용산 파크타워',
-      area: '주거공간',
+      area: '40py',
       period: '2025. 05'
     }
   },
