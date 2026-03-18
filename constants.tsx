@@ -130,26 +130,6 @@ export const PROJECTS: Project[] = [
       area: '평형 정보 확인 필요',
       period: '작업 기간 확인 필요'
     }
-  },
-  {
-    id: '7',
-    title: '올림픽훼미리',
-    category: 'Residential',
-    imageUrl: '/assets/projects/olympic/썸네일.jpg',
-    galleryUrls: [
-      '/assets/projects/olympic/1.jpg', '/assets/projects/olympic/2.jpg', '/assets/projects/olympic/3.jpg',
-      '/assets/projects/olympic/4.jpg', '/assets/projects/olympic/5.jpg', '/assets/projects/olympic/6.jpg',
-      '/assets/projects/olympic/7.jpg', '/assets/projects/olympic/8.jpg', '/assets/projects/olympic/9.jpg',
-      '/assets/projects/olympic/10.jpg'
-    ],
-    description: '올림픽훼미리 타운의 모던하고 실용적인 인테리어 솔루션.',
-    longDescription: '오래된 공간의 시간은 유지하면서 사용자의 라이프스타일에 맞춘 현대적인 편리함을 더했습니다. 따뜻한 무드와 정제된 마감이 돋보입니다.',
-    features: ['실용적 수납 계획', '모던 미니멀리즘 리모델링', '조명 및 톤앤매너 기획'],
-    specs: {
-      location: '서울시 송파구 문정동',
-      area: '평형 정보 확인 필요',
-      period: '작업 기간 확인 필요'
-    }
   }
 ];
 
