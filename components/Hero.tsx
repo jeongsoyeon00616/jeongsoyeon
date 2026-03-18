@@ -66,7 +66,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
       {/* LEFT BOTTOM: DESIGNLENS AI (Matching Archive style) */}
       <button
         onClick={onOpenDesignLens}
-        className="absolute bottom-12 left-6 md:left-10 z-20 group flex items-center gap-3 text-[9px] tracking-[0.4em] uppercase font-bold text-white/40 hover:text-gold transition-colors animate-fadeInUp delay-300"
+        className="absolute bottom-12 left-6 md:left-10 z-20 group flex items-center gap-3 text-[11px] tracking-[0.4em] uppercase font-bold text-white/40 hover:text-gold transition-colors animate-fadeInUp delay-300"
       >
         DesignLens AI
         <span className="w-6 h-6 border border-white/20 rounded-full flex items-center justify-center transition-all group-hover:border-gold group-hover:bg-gold/10">
@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
       </button>
 
       {/* RIGHT BOTTOM: ARCHIVE TEXT (Matching DesignLens style) */}
-      <div className="absolute bottom-12 right-6 md:right-10 z-10 hidden lg:flex items-center gap-3 text-[9px] tracking-[0.4em] uppercase font-bold text-white/30">
+      <div className="absolute bottom-12 right-6 md:right-10 z-10 hidden lg:flex items-center gap-3 text-[11px] tracking-[0.4em] uppercase font-bold text-white/30">
         JEONG SOYEON — ARCHIVE
         <span className="w-6 h-6 border border-white/10 rounded-full flex items-center justify-center">
           <span className="text-[8px] opacity-50">01</span>

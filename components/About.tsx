@@ -50,11 +50,11 @@ const About: React.FC = () => {
               <div className="absolute -top-6 -left-6 z-20 font-serif italic text-2xl text-gray-300 opacity-60 select-none pointer-events-none">
                 Jeong Soyeon
               </div>
-              <div className="relative w-full h-full bg-[#E2E2DE] overflow-hidden shadow-sm">
+              <div className="relative w-full h-full bg-[#E2E2DE] overflow-hidden shadow-2xl ring-1 ring-black/5">
                 <img
                   src="/profile.png"
                   alt="Designer Soyeon Jeong"
-                  className="w-full h-full object-cover mix-blend-multiply opacity-90 transition-transform duration-[3s] group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105"
                 />
               </div>
 
@@ -78,7 +78,7 @@ const About: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-[10px] font-bold uppercase tracking-[0.5em] mb-12 text-gold">
+              <h2 className="text-[12px] font-bold uppercase tracking-[0.5em] mb-12 text-gold">
                 Philosophy
               </h2>
               <h3 className="text-3xl md:text-4xl font-serif text-[#1a1a1a] mb-8 leading-[1.5] italic font-light">
@@ -120,29 +120,29 @@ const About: React.FC = () => {
             </div>
 
             {/* EXPERIENCE & EDUCATION (Updated Contents) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gray-200/50">
+            <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1.8fr] gap-12 pt-12 border-t border-gray-200/50">
               <div className="space-y-6">
-                <h4 className="text-[9px] font-bold uppercase tracking-widest text-gray-400">Experience</h4>
-                <ul className="space-y-4 text-[11px] text-gray-600 font-light leading-relaxed uppercase tracking-tighter">
+                <h4 className="text-[11px] font-bold uppercase tracking-widest text-gray-400">Experience</h4>
+                <ul className="space-y-4 text-[13px] text-gray-600 font-light leading-relaxed uppercase tracking-normal">
                   <li>
-                    <span className="block font-bold text-gray-900 text-[10px]">2024. 10 — 2026. 01</span>
+                    <span className="block font-bold text-gray-900 text-[12px]">2024. 10 — 2026. 01</span>
                     mikrabbit (미크래빗) — 주임
                   </li>
                 </ul>
               </div>
               <div className="space-y-6">
-                <h4 className="text-[9px] font-bold uppercase tracking-widest text-gray-400">Education</h4>
-                <ul className="space-y-4 text-[11px] text-gray-600 font-light leading-relaxed uppercase tracking-tighter">
-                  <li>
-                    <span className="block font-bold text-gray-900 text-[10px]">2024. 03 — 2024. 08</span>
+                <h4 className="text-[11px] font-bold uppercase tracking-widest text-gray-400">Education</h4>
+                <ul className="space-y-4 text-[13px] text-gray-600 font-light leading-relaxed uppercase tracking-normal">
+                  <li className="whitespace-nowrap">
+                    <span className="block font-bold text-gray-900 text-[12px]">2024. 03 — 2024. 08</span>
                     노원 그린 아카데미 — 실내건축디자인 수료
                   </li>
-                  <li>
-                    <span className="block font-bold text-gray-900 text-[10px]">2021. 02 — 2024. 02</span>
-                    한양사이버대학교 — 산업디자인과 편입/졸업
+                  <li className="whitespace-nowrap">
+                    <span className="block font-bold text-gray-900 text-[12px]">2021. 02 — 2024. 02</span>
+                    한양사이버대학교 — 산업디자인과 편입 / 졸업
                   </li>
-                  <li>
-                    <span className="block font-bold text-gray-900 text-[10px]">2019. 03 — 2021. 02</span>
+                  <li className="whitespace-nowrap">
+                    <span className="block font-bold text-gray-900 text-[12px]">2019. 03 — 2021. 02</span>
                     경기과학기술대학교 — 금형디자인과 졸업
                   </li>
                 </ul>

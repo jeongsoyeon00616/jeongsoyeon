@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
     <section id="contact" className="py-32 bg-off-white transition-colors duration-1000">
       <div className="max-w-4xl mx-auto px-10">
         <div className="text-center mb-20">
-          <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4 text-gold">
+          <h2 className="text-[12px] font-bold uppercase tracking-[0.4em] mb-4 text-gold">
             Get in Touch
           </h2>
           <p className="text-4xl md:text-5xl font-serif text-[#1a1a1a]">
@@ -80,14 +80,14 @@ const Contact: React.FC = () => {
           <div className="text-center pt-10">
             <button
               type="submit"
-              className="px-12 py-4 border border-[#1a1a1a] text-[#1a1a1a] text-xs uppercase tracking-[0.3em] font-bold hover:bg-gold hover:border-gold hover:text-white transition-all duration-500"
+              className="px-12 py-5 border border-[#1a1a1a] text-[#1a1a1a] text-[13px] uppercase tracking-[0.3em] font-bold hover:bg-gold hover:border-gold hover:text-white transition-all duration-500"
             >
               Submit Inquiry
             </button>
           </div>
         </form>
 
-        <div className="mt-32 pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-medium text-gray-400">
+        <div className="mt-32 pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8 text-[11px] uppercase tracking-[0.2em] font-medium text-gray-400">
           <div>© 2025 Studio Soyeon. All Rights Reserved.</div>
           <div className="flex gap-8">
             <a href="#" className="hover:text-gold transition-colors">Instagram</a>

@@ -7,7 +7,6 @@
     0% {
       transform: scale(1);
     }
-
     100% {
       transform: scale(1.05);
     }
@@ -15,5 +14,23 @@
 
   .animate-slowZoom {
     animation: slowZoom 30s infinite alternate linear;
+  }
+
+  /* Custom scrollbar to make "wheel" and scroll indicators elegant but present */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.4);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 1);
   }
 }

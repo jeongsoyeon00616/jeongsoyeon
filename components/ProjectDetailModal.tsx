@@ -35,10 +35,10 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project, onClos
                     </button>
 
                     {/* Left: Swiper-like Image Gallery */}
-                    <div className="w-full md:w-3/5 h-[40vh] md:h-full bg-gray-100 overflow-y-auto custom-scrollbar">
-                        <div className="flex flex-col gap-2 p-2">
+                    <div className="relative w-full md:w-3/5 h-[40vh] md:h-full bg-gray-100">
+                        <div className="h-full overflow-y-auto custom-scrollbar flex flex-col gap-3 p-2">
                             {project.galleryUrls?.map((url, index) => (
-                                <div key={index} className="w-full overflow-hidden">
+                                <div key={index} className="w-full shrink-0">
                                     <img
                                         src={url}
                                         alt={`${project.title} - ${index + 1}`}
@@ -50,6 +50,19 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project, onClos
                                 <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
                             )}
                         </div>
+
+                        {/* SCROLL INDICATOR (Floating Down Arrow) */}
+                        <motion.div 
+                            initial={{ translateY: 0, opacity: 0.6 }}
+                            animate={{ translateY: 10, opacity: 1 }}
+                            transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+                            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 pointer-events-none hidden md:flex flex-col items-center gap-2"
+                        >
+                            <span className="text-[10px] text-white/50 uppercase tracking-[0.3em] font-light">Scroll Down</span>
+                            <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center bg-black/10 backdrop-blur-sm">
+                                <span className="text-white text-lg">↓</span>
+                            </div>
+                        </motion.div>
                     </div>
 
                     {/* Right: Project Info */}

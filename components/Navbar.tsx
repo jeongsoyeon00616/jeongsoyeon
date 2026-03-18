@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenDesignLens }) => {
           </div>
 
           {/* CENTER: NAV LINKS */}
-          <div className={`hidden xl:flex flex-2 justify-center items-center gap-14 text-[11px] font-light tracking-[0.4em] ${currentTheme.link} uppercase`}>
+          <div className={`hidden xl:flex flex-2 justify-center items-center gap-24 text-[13px] font-light tracking-[0.4em] ${currentTheme.link} uppercase`}>
             {navLinks.map((link) => (
               <a key={link.name} href={link.href} className="hover:text-gold transition-colors duration-300">{link.name}</a>
             ))}

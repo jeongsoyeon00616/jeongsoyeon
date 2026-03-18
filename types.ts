@@ -13,6 +13,7 @@ export interface Project {
     area?: string;
     period?: string;
   };
+  aspectRatio?: 'horizontal' | 'vertical';
 }
 
 export interface Skill {
