@@ -56,9 +56,7 @@ export const PROJECTS: Project[] = [
       '/assets/projects/yongsan/4.jpg', '/assets/projects/yongsan/5.jpg', '/assets/projects/yongsan/6.jpg',
       '/assets/projects/yongsan/7.jpg', '/assets/projects/yongsan/8.jpg', '/assets/projects/yongsan/9.jpg',
       '/assets/projects/yongsan/10.jpg', '/assets/projects/yongsan/11.jpg', '/assets/projects/yongsan/12.jpg',
-      '/assets/projects/yongsan/13.jpg', '/assets/projects/yongsan/detail-14.jpg', '/assets/projects/yongsan/detail-15.jpg',
-      '/assets/projects/yongsan/detail-16.jpg', '/assets/projects/yongsan/detail-17.jpg', '/assets/projects/yongsan/detail-18.jpg',
-      '/assets/projects/yongsan/detail-19.jpg', '/assets/projects/yongsan/detail-20.jpg', '/assets/projects/yongsan/detail-21.jpg'
+      '/assets/projects/yongsan/13.jpg'
     ],
     description: '1인 가구의 독립적인 취미와 탁 트인 뷰를 반영한 프라이빗 와인바.',
     longDescription: '오롯이 1인을 위한 공간으로서 클라이언트의 확고한 취향을 자재와 공간 곳곳에 녹여낸 현장이다. 주방의 빅슬랩 타일을 중심으로 전체 컬러 밸런스를 맞췄으며, 외부 조망을 온전히 즐길 수 있도록 창가에 와인잔 거치대와 맞춤형 홈바를 계획하였다. 안방에는 상부 개폐형 화장대와 특수 하드웨어를 적용한 옷걸이봉 등 클라이언트의 동선에 최적화된 가구를 설계하여, 집의 기능을 개인의 취향 영역으로 완벽하게 확장하였다.',
@@ -80,8 +78,7 @@ export const PROJECTS: Project[] = [
       '/assets/projects/dangsan/7.jpg', '/assets/projects/dangsan/8.jpg', '/assets/projects/dangsan/9.jpg',
       '/assets/projects/dangsan/10.jpg', '/assets/projects/dangsan/11.jpg', '/assets/projects/dangsan/12.jpg',
       '/assets/projects/dangsan/13.jpg', '/assets/projects/dangsan/14.jpg', '/assets/projects/dangsan/15.jpg',
-      '/assets/projects/dangsan/16.jpg', '/assets/projects/dangsan/detail-liftup.jpg', '/assets/projects/dangsan/detail-baghanger.jpg',
-      '/assets/projects/dangsan/detail-umbrella.jpg'
+      '/assets/projects/dangsan/16.jpg'
     ],
     description: '클라이언트의 수납 스타일을 면밀히 반영하여 디테일을 더한 현장.',
     longDescription: '디자인의 확장과 함께 다양한 특수 하드웨어 적용을 시도한 공간이다. 주방에는 리프트업 도어를 적용해 깔끔한 선을 유지하면서 공간 활용도를 높였고, 평행하게 이어지는 복도장 역시 새로운 방식으로 치수와 비례를 계획해 공간감을 부여하였다. 특히 고객이 자주 사용하는 가방의 형태와 수납 방식을 면밀히 분석한 뒤, 맞춤형 가방걸이를 직접 제작해 드림으로써 일상적인 불편함을 디테일로 해결해낸 현장이다.',
@@ -106,26 +103,7 @@ export const PROJECTS: Project[] = [
       '/assets/projects/dogok/16.jpg', '/assets/projects/dogok/17.jpg', '/assets/projects/dogok/18.jpg',
       '/assets/projects/dogok/19.jpg', '/assets/projects/dogok/20.jpg', '/assets/projects/dogok/21.jpg',
       '/assets/projects/dogok/22.jpg', '/assets/projects/dogok/23.jpg', '/assets/projects/dogok/24.jpg',
-      '/assets/projects/dogok/25.jpg',
-      '/assets/projects/dogok/detail-mobile-1.jpg', '/assets/projects/dogok/detail-mobile-2.jpg', '/assets/projects/dogok/detail-mobile-3.jpg',
-      '/assets/projects/dogok/detail-mobile-4.jpg', '/assets/projects/dogok/detail-mobile-5.jpg', '/assets/projects/dogok/detail-mobile-6.jpg',
-      '/assets/projects/dogok/detail-mobile-7.jpg', '/assets/projects/dogok/detail-mobile-8.jpg', '/assets/projects/dogok/detail-mobile-9.jpg',
-      '/assets/projects/dogok/detail-mobile-10.jpg', '/assets/projects/dogok/detail-mobile-11.jpg', '/assets/projects/dogok/detail-mobile-12.jpg',
-      '/assets/projects/dogok/detail-mobile-13.jpg', '/assets/projects/dogok/detail-mobile-14.jpg', '/assets/projects/dogok/detail-mobile-15.jpg',
-      '/assets/projects/dogok/detail-mobile-16.jpg', '/assets/projects/dogok/detail-mobile-17.jpg', '/assets/projects/dogok/detail-mobile-18.jpg',
-      '/assets/projects/dogok/detail-mobile-19.jpg', '/assets/projects/dogok/detail-mobile-20.jpg', '/assets/projects/dogok/detail-mobile-21.jpg',
-      '/assets/projects/dogok/detail-mobile-22.jpg', '/assets/projects/dogok/detail-mobile-23.jpg', '/assets/projects/dogok/detail-mobile-24.jpg',
-      '/assets/projects/dogok/detail-mobile-25.jpg', '/assets/projects/dogok/detail-mobile-26.jpg', '/assets/projects/dogok/detail-mobile-27.jpg',
-      '/assets/projects/dogok/detail-mobile-28.jpg', '/assets/projects/dogok/detail-mobile-29.jpg', '/assets/projects/dogok/detail-mobile-30.jpg',
-      '/assets/projects/dogok/detail-mobile-31.jpg', '/assets/projects/dogok/detail-mobile-32.jpg', '/assets/projects/dogok/detail-mobile-33.jpg',
-      '/assets/projects/dogok/detail-mobile-34.jpg', '/assets/projects/dogok/detail-mobile-35.jpg', '/assets/projects/dogok/detail-mobile-36.jpg',
-      '/assets/projects/dogok/detail-mobile-37.jpg', '/assets/projects/dogok/detail-mobile-38.jpg', '/assets/projects/dogok/detail-mobile-39.jpg',
-      '/assets/projects/dogok/detail-mobile-40.jpg', '/assets/projects/dogok/detail-mobile-41.jpg', '/assets/projects/dogok/detail-mobile-42.jpg',
-      '/assets/projects/dogok/detail-mobile-43.jpg', '/assets/projects/dogok/detail-mobile-44.jpg', '/assets/projects/dogok/detail-mobile-45.jpg',
-      '/assets/projects/dogok/detail-mobile-46.jpg', '/assets/projects/dogok/detail-mobile-47.jpg', '/assets/projects/dogok/detail-mobile-48.jpg',
-      '/assets/projects/dogok/detail-mobile-49.jpg', '/assets/projects/dogok/detail-mobile-50.jpg', '/assets/projects/dogok/detail-mobile-51.jpg',
-      '/assets/projects/dogok/detail-mobile-52.jpg', '/assets/projects/dogok/detail-mobile-53.jpg', '/assets/projects/dogok/detail-mobile-54.jpg',
-      '/assets/projects/dogok/detail-mobile-55.jpg'
+      '/assets/projects/dogok/25.jpg'
     ],
     description: '금속 소재를 폭넓게 활용해 정교함의 층위를 더한 5인 가족의 주거 공간.',
     longDescription: '해외에 거주 중인 클라이언트를 대신하여, 실측과 현장 단계에서부터 각별히 신경을 집중한 프로젝트이다. 물리적 거리로 인한 제약을 완벽한 마감으로 극복하기 위해 난이도 높은 디테일 요소들을 과감히 적용하였다. 거실 복도장 벽면의 매립형 금속 바, 주방 홈바의 \'ㄷ\'자 단조 선반 등 금속 하드웨어 연계를 1mm의 오차 없이 치밀하게 풀어내며, 단순한 주거 공간 이상의 견고한 완성도를 이끌어내었다.',
@@ -151,6 +129,26 @@ export const PROJECTS: Project[] = [
       location: '서울시 마포구 창전동 창전삼성래미안',
       area: '32py',
       period: '2025. 09'
+    }
+  },
+  {
+    id: '7',
+    title: '올림픽훼미리',
+    category: 'Residential',
+    imageUrl: '/assets/projects/olympic/썸네일.jpg',
+    galleryUrls: [
+      '/assets/projects/olympic/1.jpg', '/assets/projects/olympic/2.jpg', '/assets/projects/olympic/3.jpg',
+      '/assets/projects/olympic/4.jpg', '/assets/projects/olympic/5.jpg', '/assets/projects/olympic/6.jpg',
+      '/assets/projects/olympic/7.jpg', '/assets/projects/olympic/8.jpg', '/assets/projects/olympic/9.jpg',
+      '/assets/projects/olympic/10.jpg'
+    ],
+    description: '정갈한 화이트 톤에 우드 포인트를 더해 간결하면서도 따뜻한 무드를 연출한 현장.',
+    longDescription: '가족의 화목한 시간을 담아내기 위해 공용 공간의 개방감에 집중한 프로젝트이다. 주방에는 LX 하이막스 오로라 웜블랑 상판을 아일랜드 옆면까지 길게 이어 시각적인 확장감을 부여하였으며, 예림 프랜치오크와 아크퓨어코튼 소재를 조화롭게 매치하여 세련된 분위기를 자아냈다. 특히 정수기, 커피포트 등 생활 가전을 깔끔하게 수납할 수 있는 맞춤형 키큰장을 제작하여 기능적인 편의성까지 놓치지 않았다.',
+    features: ['아일랜드 측면 연장 상판 시공', '우드 & 화이트의 조화로운 밸런스', '가전 맞춤 수납 시스템 설계'],
+    specs: {
+      location: '서울시 송파구 문정동 올림픽훼미리타운',
+      area: '48py',
+      period: '2025. 11'
     }
   }
 ];
