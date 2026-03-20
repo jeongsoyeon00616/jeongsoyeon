@@ -130,26 +130,6 @@ export const PROJECTS: Project[] = [
       area: '32py',
       period: '2025. 09'
     }
-  },
-  {
-    id: '7',
-    title: '올림픽훼미리',
-    category: 'Residential',
-    imageUrl: '/assets/projects/olympic/썸네일.jpg',
-    galleryUrls: [
-      '/assets/projects/olympic/1.jpg', '/assets/projects/olympic/2.jpg', '/assets/projects/olympic/3.jpg',
-      '/assets/projects/olympic/4.jpg', '/assets/projects/olympic/5.jpg', '/assets/projects/olympic/6.jpg',
-      '/assets/projects/olympic/7.jpg', '/assets/projects/olympic/8.jpg', '/assets/projects/olympic/9.jpg',
-      '/assets/projects/olympic/10.jpg'
-    ],
-    description: '정갈한 화이트 톤에 우드 포인트를 더해 간결하면서도 따뜻한 무드를 연출한 현장.',
-    longDescription: '가족의 화목한 시간을 담아내기 위해 공용 공간의 개방감에 집중한 프로젝트이다. 주방에는 LX 하이막스 오로라 웜블랑 상판을 아일랜드 옆면까지 길게 이어 시각적인 확장감을 부여하였으며, 예림 프랜치오크와 아크퓨어코튼 소재를 조화롭게 매치하여 세련된 분위기를 자아냈다. 특히 정수기, 커피포트 등 생활 가전을 깔끔하게 수납할 수 있는 맞춤형 키큰장을 제작하여 기능적인 편의성까지 놓치지 않았다.',
-    features: ['아일랜드 측면 연장 상판 시공', '우드 & 화이트의 조화로운 밸런스', '가전 맞춤 수납 시스템 설계'],
-    specs: {
-      location: '서울시 송파구 문정동 올림픽훼미리타운',
-      area: '48py',
-      period: '2025. 11'
-    }
   }
 ];
 
