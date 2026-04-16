@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-const HERO_CONTENT = [
-  { type: 'video', url: "/assets/projects/gaepo/video.mp4" },
-  { type: 'image', url: "/luxury_wood_white_interior_1770539236547.png" },
-  { type: 'image', url: "/wood_white_interior_1770539198655.png" },
-  { type: 'image', url: "/wood_white_interior_hero_1770539217494.png" },
-  { type: 'image', url: "/wood_white_interior_hero_1770539254930.png" },
-  { type: 'image', url: "/wood_white_interior_hero_1770539277252.png" },
+const BACKGROUND_IMAGES = [
+  "/luxury_wood_white_interior_1770539236547.png",
+  "/wood_white_interior_1770539198655.png",
+  "/wood_white_interior_hero_1770539217494.png",
+  "/wood_white_interior_hero_1770539254930.png",
+  "/wood_white_interior_hero_1770539277252.png",
+  "/wood_white_interior_hero_1770539296677.png"
 ];
 
 interface HeroProps {
@@ -18,37 +18,25 @@ const Hero: React.FC<HeroProps> = ({ onOpenDesignLens }) => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % HERO_CONTENT.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % BACKGROUND_IMAGES.length);
     }, 6000);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-charcoal text-center px-6">
-      {/* BACKGROUND CONTENT WITH OVERLAY */}
-      {HERO_CONTENT.map((item, index) => (
+      {/* BACKGROUND IMAGES WITH OVERLAY */}
+      {BACKGROUND_IMAGES.map((image, index) => (
         <div
           key={index}
           className={`absolute inset-0 z-0 transition-opacity duration-[2000ms] ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
         >
           <div className="w-full h-full scale-100 animate-slowZoom">
-            {item.type === 'video' ? (
-              <video 
-                autoPlay 
-                muted 
-                loop 
-                playsInline
-                className="w-full h-full object-cover brightness-[0.7] contrast-[1.05]"
-              >
-                <source src={item.url} type="video/mp4" />
-              </video>
-            ) : (
-              <img
-                src={item.url}
-                alt={`Interior ${index + 1}`}
-                className="w-full h-full object-cover brightness-[0.75] contrast-[1.05]"
-              />
-            )}
+            <img
+              src={image}
+              alt={`Interior ${index + 1}`}
+              className="w-full h-full object-cover brightness-[0.75] contrast-[1.05]"
+            />
           </div>
         </div>
       ))}
