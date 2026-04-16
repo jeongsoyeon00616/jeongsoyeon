@@ -39,11 +39,23 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project, onClos
                         <div className="h-full overflow-y-auto custom-scrollbar flex flex-col gap-3 p-2">
                             {project.galleryUrls?.map((url, index) => (
                                 <div key={index} className="w-full shrink-0">
-                                    <img
-                                        src={url}
-                                        alt={`${project.title} - ${index + 1}`}
-                                        className="w-full h-auto object-cover"
-                                    />
+                                    {url.endsWith('.mp4') || url.endsWith('.webm') ? (
+                                        <video 
+                                            autoPlay 
+                                            muted 
+                                            loop 
+                                            playsInline
+                                            className="w-full h-auto object-cover"
+                                        >
+                                            <source src={url} type="video/mp4" />
+                                        </video>
+                                    ) : (
+                                        <img
+                                            src={url}
+                                            alt={`${project.title} - ${index + 1}`}
+                                            className="w-full h-auto object-cover"
+                                        />
+                                    )}
                                 </div>
                             ))}
                             {!project.galleryUrls && (

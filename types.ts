@@ -13,6 +13,7 @@ export interface Project {
     area?: string;
     period?: string;
   };
+  videoUrl?: string;
   aspectRatio?: 'horizontal' | 'vertical';
 }
 

@@ -39,12 +39,23 @@ const Gallery: React.FC = () => {
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="relative overflow-hidden mb-8 transition-all duration-700 aspect-square shadow-2xl group-hover:shadow-xl">
+                  {project.videoUrl && (
+                    <video 
+                      autoPlay 
+                      muted 
+                      loop 
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"
+                    >
+                      <source src={project.videoUrl} type="video/mp4" />
+                    </video>
+                  )}
                   <img
                     src={project.imageUrl}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 transition-opacity duration-700 flex items-center justify-center bg-charcoal/20 opacity-0 group-hover:opacity-100">
+                  <div className="absolute inset-0 transition-opacity duration-700 flex items-center justify-center bg-charcoal/20 opacity-0 group-hover:opacity-100 z-20">
                     <span className="text-white text-[11px] uppercase tracking-[0.5em] font-bold translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
                       View Project
                     </span>

@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
     galleryUrls: [
       '/assets/projects/gaepo/1.jpg', '/assets/projects/gaepo/2.jpg', '/assets/projects/gaepo/3.jpg',
       '/assets/projects/gaepo/4.jpg', '/assets/projects/gaepo/5.jpg', '/assets/projects/gaepo/6.jpg',
-      '/assets/projects/gaepo/7.jpg', '/assets/projects/gaepo/8.jpg', '/assets/projects/gaepo/9.jpg',
+      '/assets/projects/gaepo/7.jpg', '/assets/projects/gaepo/8.jpg', '/assets/projects/gaepo/video.mp4', '/assets/projects/gaepo/9.jpg',
       '/assets/projects/gaepo/10.jpg', '/assets/projects/gaepo/11.jpg', '/assets/projects/gaepo/12.jpg',
       '/assets/projects/gaepo/13.jpg', '/assets/projects/gaepo/14.jpg', '/assets/projects/gaepo/15.jpg',
       '/assets/projects/gaepo/16.jpg', '/assets/projects/gaepo/17.jpg', '/assets/projects/gaepo/18.jpg'
@@ -44,7 +44,8 @@ export const PROJECTS: Project[] = [
       location: '서울시 강남구 대치동 개포우성 1차',
       area: '65py',
       period: '2025. 04'
-    }
+    },
+    videoUrl: '/assets/projects/gaepo/video.mp4'
   },
   {
     id: '3',

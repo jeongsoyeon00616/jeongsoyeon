@@ -1,0 +1,202 @@
+.poster-container {
+  width: 595px; /* A4 Ratio Width */
+  height: 841px; /* A4 Ratio Height */
+  background-color: #35b5e5;
+  position: relative;
+  overflow: hidden;
+  font-family: 'GmarketSans', 'NanumSquareRound', 'Arial Rounded MT Bold', sans-serif;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* 배경 2026 리본 스타일 */
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.ribbon-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ribbon-path {
+  fill: none;
+  stroke: #ff99cc;
+  stroke-width: 80;
+  stroke-linecap: round;
+  opacity: 0.6;
+}
+
+.bg-text-2026 {
+  font-size: 300px;
+  font-weight: 900;
+  fill: #ffb3d9;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  opacity: 0.4;
+  letter-spacing: -10px;
+}
+
+/* 캐릭터 레이어 */
+.characters-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.char {
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+/* 중앙 여주인공 & 조롱박 */
+.center-woman {
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gourd-vase {
+  width: 80px;
+  height: 120px;
+  background: #a67c52;
+  border-radius: 40% 40% 50% 50% / 30% 30% 70% 70%;
+  border: 3px solid #333;
+  position: relative;
+}
+
+.gourd-vase::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: #a67c52;
+  border-radius: 50%;
+  border: 3px solid #333;
+}
+
+.speech-bubble {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speech-bubble .hanja {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 축구공 - 어두운 회색 */
+.soccer-ball {
+  position: absolute;
+  top: 50px;
+  left: 80px;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid #333;
+  background-image: radial-gradient(circle at 30% 30%, #555, #333 50%, transparent 60%);
+}
+
+/* OTL 한량 */
+.hanlyang-otl {
+  top: 15%;
+  right: 15%;
+}
+
+.cone-on-face {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 50px solid #ffcc00;
+  transform: rotate(180deg);
+}
+
+.cards-floor {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card {
+  width: 30px;
+  height: 45px;
+  border: 2px solid #333;
+  border-radius: 4px;
+}
+.card.red { background-color: #ff4d4d; }
+.card.blue { background-color: #4d4dff; }
+
+/* 지압신발 */
+.shiatsu-shoes {
+  width: 100px;
+  height: 20px;
+  background: #ddd;
+  border: 2px solid #333;
+  position: relative;
+  background-image: radial-gradient(circle, #888 2px, transparent 2px);
+  background-size: 8px 8px;
+}
+
+/* 하단 텍스트 */
+.bottom-content {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+}
+
+.main-title {
+  font-size: 72px;
+  color: white;
+  text-shadow: 
+    -3px -3px 0 #333,
+    3px -3px 0 #333,
+    -3px 3px 0 #333,
+    3px 3px 0 #333;
+  margin-bottom: 20px;
+}
+
+.info-pills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pill {
+  background: white;
+  color: #333;
+  padding: 8px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #333;
+  min-width: 300px;
+}
